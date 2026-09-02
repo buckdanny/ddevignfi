@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/modernist-67436c18-0830-4058-affe-7662069d7d7a/styles.css">
+<script src="_ds/modernist-67436c18-0830-4058-affe-7662069d7d7a/_ds_bundle.js"></script>
+<style>
+  html, body { background: var(--color-bg); }
+  a { color: var(--color-accent-700); }
+  a:hover { color: var(--color-accent); }
+</style>
+</helmet>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" fill="#ec3013"/><g fill="none" stroke="#f3f2f2" stroke-width="7"><rect x="60" y="60" width="80" height="80"/><path d="M60 87h80M60 113h80M87 60v80M113 60v80"/></g></svg></template>
+<div style="min-height:100vh;display:flex;flex-direction:column;background:var(--color-bg);color:var(--color-text)">
+
+  <header class="nav" style="position:sticky;top:0;z-index:10;background:var(--color-bg);padding:12px 40px;gap:16px 24px;flex-wrap:wrap">
+    <div class="nav-brand" style="font-size:15px;letter-spacing:-0.01em;margin-right:auto;cursor:pointer;white-space:nowrap" onClick="{{ goHome }}">DIRECTION DU DÉVELOPPEMENT <span style="color:var(--color-accent)">/</span> IGN FI</div>
+    <nav style="display:flex;flex-wrap:wrap;align-items:center;gap:10px 22px">
+      <sc-for list="{{ navItems }}" as="nav" hint-placeholder-count="6">
+        <a href="{{ nav.href }}" onClick="{{ nav.onClick }}" aria-current="{{ nav.current }}" style="font-size:12.5px;letter-spacing:0.04em;text-transform:uppercase;font-weight:600;white-space:nowrap">{{ nav.label }}</a>
+      </sc-for>
+    </nav>
+    <div style="display:flex;align-items:center;gap:6px;flex:none">
+      <sc-for list="{{ dirOptions }}" as="opt" hint-placeholder-count="2">
+        <button onClick="{{ opt.onClick }}" style="{{ opt.style }}">{{ opt.label }}</button>
+      </sc-for>
+    </div>
+  </header>
+
+  <!-- ACCUEIL — direction A : grille -->
+  <sc-if value="{{ isHomeGrid }}" hint-placeholder-val="{{ true }}">
+  <main>
+    <section>
+      <div style="color:var(--color-bg);min-height:400px;display:flex;flex-direction:column;justify-content:flex-end;padding:40px;background-image:linear-gradient(rgba(23,34,49,0) 0%, rgba(23,34,49,0.06) 55%, rgba(23,34,49,0.24) 100%), url(assets/banniere-photo.webp);background-size:cover;background-position:center 45%;border-bottom:2px solid var(--color-divider)">
+        <div style="background:rgba(20,29,42,0.82);padding:22px 26px;align-self:flex-start;max-width:100%">
+          <span style="font-family:var(--font-body);font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;opacity:0.9;display:block;margin-bottom:8px">Direction du développement</span>
+          <h2 style="font-family:var(--font-heading);font-weight:800;font-size:56px;line-height:1;letter-spacing:-0.03em;margin:0">Offre de services IGN FI</h2>
+        </div>
+      </div>
+    </section>
+    <section style="display:grid;grid-template-columns:1.3fr 1fr;border-bottom:2px solid var(--color-divider)">
+      <div style="padding:68px 40px 52px;border-right:2px solid var(--color-divider)">
+        <h6 style="color:var(--color-accent);margin-bottom:20px">Offre de services IGN FI · Document de travail V02 · Usage interne</h6>
+        <h1 style="font-size:56px;max-width:16em;margin-bottom:24px">Nos solutions geodata au service des politiques publiques du développement territorial.</h1>
+        <p style="max-width:36em;font-size:17px;line-height:1.6;opacity:0.82;text-wrap:pretty">Référentiel commun aux ingénieurs d'affaires et aux experts techniques. Il part du besoin du client — pas de notre organigramme — pour mobiliser les expertises, les technologies et les partenaires qui y répondent.</p>
+        <p style="max-width:36em;font-size:13.5px;line-height:1.5;opacity:0.55;margin-top:14px">Proposé par la Direction du développement, la Direction Commerciale et la Direction Technique, sous l'égide de la Direction Générale.</p>
+        <p style="max-width:36em;font-size:15px;line-height:1.6;opacity:0.6;font-style:italic;margin-top:18px">« Si tout ce que vous avez est un marteau, tout ressemble à un clou. » — Abraham Maslow, cité en ouverture du document.</p>
+        <div style="display:flex;gap:12px;margin-top:32px">
+          <button class="btn btn-primary" onClick="{{ goParcours }}" style="padding:12px 20px;font-size:14px">Partir d'un besoin client</button>
+          <button class="btn btn-secondary" onClick="{{ goDomaines }}" style="padding:12px 20px;font-size:14px">Parcourir les domaines</button>
+        </div>
+      </div>
+      <div style="padding:68px 40px 52px;display:flex;flex-direction:column;justify-content:flex-start;gap:24px">
+        <div>
+          <h6 style="opacity:0.5;margin-bottom:10px">Ce que ce référentiel change</h6>
+          <p style="font-size:14.5px;opacity:0.78;margin:0;text-wrap:pretty">Le mode de vente majoritaire reste la réponse aux appels d'offres. Ce document existe pour ouvrir les autres voies : financements privés, marchés B2B, approche directe des administrations, montages intégrés multi-composantes.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--color-divider)">
+          <sc-for list="{{ stats }}" as="s" hint-placeholder-count="4">
+            <div style="background:var(--color-bg);padding:16px 0 16px 16px">
+              <div style="font-family:var(--font-heading);font-weight:800;font-size:32px;line-height:1">{{ s.value }}</div>
+              <div style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;opacity:0.55;margin-top:6px">{{ s.label }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding:52px 40px 26px">
+      <div style="display:flex;align-items:baseline;justify-content:space-between">
+        <h2 style="font-size:30px;margin:0">Sept besoins clients</h2>
+        <span style="font-size:12px;opacity:0.55">Cliquez un besoin pour voir les offres qui y répondent</span>
+      </div>
+    </section>
+    <section style="display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--color-divider);margin:0 40px 56px;border-top:2px solid var(--color-divider);border-bottom:2px solid var(--color-divider)">
+      <sc-for list="{{ needCards }}" as="n" hint-placeholder-count="7">
+        <div onClick="{{ n.onClick }}" style="background:var(--color-bg);padding:26px 22px 22px;cursor:pointer;display:flex;flex-direction:column;gap:10px;min-height:210px" style-hover="background:var(--color-surface)">
+          <div style="display:flex;align-items:baseline;gap:10px">
+            <span style="font-family:var(--font-heading);font-weight:800;font-size:13px;color:var(--color-accent)">{{ n.num }}</span>
+            <span style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase;opacity:0.45">{{ n.count }} offres</span>
+          </div>
+          <h3 style="font-size:20px;margin:0">{{ n.title }}</h3>
+          <p style="font-size:12.5px;opacity:0.7;margin:0;flex:1;text-wrap:pretty">{{ n.question }}</p>
+          <div style="font-size:12px;color:var(--color-accent-700);font-weight:600">Voir les offres →</div>
+        </div>
+      </sc-for>
+      <sc-for list="{{ needCardsFill }}" as="f" hint-placeholder-count="1">
+        <div style="background:var(--color-bg)"></div>
+      </sc-for>
+    </section>
+
+    <section style="padding:0 40px 64px">
+      <h2 style="font-size:30px;margin-bottom:22px">Les six domaines</h2>
+      <div style="border-top:2px solid var(--color-divider)">
+        <sc-for list="{{ domainRows }}" as="d" hint-placeholder-count="5">
+          <div onClick="{{ d.onClick }}" style="display:grid;grid-template-columns:44px 1.1fr 1.6fr auto;align-items:start;gap:24px;padding:22px 0;border-bottom:1px solid var(--color-divider);cursor:pointer" style-hover="background:var(--color-surface)">
+            <span style="color:var(--color-accent);display:flex;align-items:center;font-size:21px;height:1.35em">{{ d.icon }}</span>
+            <h3 style="font-size:21px;margin:0;line-height:1.35">{{ d.name }}</h3>
+            <p style="font-size:13.5px;opacity:0.72;margin:0;text-wrap:pretty">{{ d.line }}</p>
+            <span style="font-size:12px;letter-spacing:0.08em;text-transform:uppercase;opacity:0.5;white-space:nowrap">{{ d.count }} offres →</span>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+  </main>
+  </sc-if>
+
+  <!-- ACCUEIL — direction B : affiche -->
+  <sc-if value="{{ isHomePoster }}" hint-placeholder-val="{{ false }}">
+  <main>
+    <section style="color: var(--color-bg); padding: 200px 40px 96px; border-bottom: 2px solid var(--color-text); background-image: linear-gradient(rgba(23,34,49,0) 0%, rgba(23,34,49,0.06) 55%, rgba(23,34,49,0.28) 100%), url(assets/banniere-photo.webp); background-size: cover; background-position: center 45%">
+      <div style="background:rgba(20,29,42,0.82);padding:34px 38px;display:inline-block;max-width:100%">
+        <h6 style="margin-bottom:30px;opacity:0.9">Offre de services IGN FI · Document de travail V02 · Usage interne</h6>
+        <h1 style="font-size:92px;line-height:0.98;max-width:15em;margin:0 0 26px;letter-spacing:-0.03em">Partez du besoin<br>L'offre suit</h1>
+        <p style="max-width:32em;font-size:18px;line-height:1.5;margin:0">Nos solutions geodata au service des politiques publiques du développement territorial : six domaines, les références projets et les budgets de référence au même endroit.</p>
+      </div>
+      <div><button class="btn" onClick="{{ goParcours }}" style="margin-top:34px;padding:14px 22px;background:var(--color-bg);color:var(--color-text);font-size:15px">Ouvrir le parcours par besoin</button></div>
+    </section>
+    <section style="padding:0 40px">
+      <sc-for list="{{ needCards }}" as="n" hint-placeholder-count="7">
+        <div onClick="{{ n.onClick }}" style="display:grid;grid-template-columns:64px 1.1fr 1fr auto;align-items:center;gap:24px;padding:24px 0;border-bottom:2px solid var(--color-divider);cursor:pointer" style-hover="background:var(--color-surface)">
+          <span style="font-family:var(--font-heading);font-weight:800;font-size:30px;color:var(--color-accent)">{{ n.num }}</span>
+          <h3 style="font-size:25px;margin:0">{{ n.title }}</h3>
+          <p style="font-size:13px;opacity:0.7;margin:0">{{ n.question }}</p>
+          <span style="font-size:12px;letter-spacing:0.08em;text-transform:uppercase;opacity:0.5;white-space:nowrap">{{ n.count }} offres →</span>
+        </div>
+      </sc-for>
+    </section>
+    <div style="height:56px"></div>
+  </main>
+  </sc-if>
+
+  <!-- PARCOURS PAR BESOIN -->
+  <sc-if value="{{ isParcours }}" hint-placeholder-val="{{ false }}">
+  <main style="flex:1;display:grid;grid-template-columns:360px 1fr">
+    <aside style="border-right:2px solid var(--color-divider);padding:36px 0 40px 40px">
+      <h6 style="opacity:0.5;margin-bottom:18px">Besoin client</h6>
+      <sc-for list="{{ needCards }}" as="n" hint-placeholder-count="7">
+        <div onClick="{{ n.onClick }}" style="{{ n.rowStyle }}" style-hover="background:var(--color-surface)">
+          <span style="font-family:var(--font-heading);font-weight:800;font-size:12px;color:var(--color-accent);width:24px;flex:none">{{ n.num }}</span>
+          <span style="font-size:14.5px;font-weight:600;line-height:1.3">{{ n.title }}</span>
+        </div>
+      </sc-for>
+      <div class="hr" style="margin:26px 24px 18px 0"></div>
+      <div style="padding-right:28px">
+        <p style="font-size:12px;opacity:0.6;margin:0">Une offre répond souvent à plusieurs besoins, et la plupart des affaires se montent en programme multi-composantes. Le rattachement ci-contre est une entrée de lecture, pas une exclusivité.</p>
+      </div>
+    </aside>
+    <section style="padding:36px 40px 64px">
+      <h6 style="color:var(--color-accent);margin-bottom:12px">Besoin {{ need.num }}</h6>
+      <h1 style="font-size:42px;max-width:22em;margin-bottom:14px">{{ need.title }}</h1>
+      <p style="font-size:16px;opacity:0.78;max-width:48em;margin-bottom:6px;text-wrap:pretty">{{ need.question }}</p>
+      <p style="font-size:14px;opacity:0.6;max-width:48em"><strong style="font-weight:600">Comment l'aborder — </strong>{{ need.approche }}</p>
+      <div class="hr"></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--color-divider);border-bottom:2px solid var(--color-divider)">
+        <sc-for list="{{ needOffers }}" as="o" hint-placeholder-count="5">
+          <div onClick="{{ o.onClick }}" style="background:var(--color-bg);padding:22px 24px;cursor:pointer;display:flex;flex-direction:column;gap:9px" style-hover="background:var(--color-surface)">
+            <div style="display:flex;align-items:center;gap:8px">
+              <span class="tag tag-neutral">{{ o.domName }}</span>
+              <span class="{{ o.matClass }}">{{ o.mat }}</span>
+            </div>
+            <h3 style="font-size:20px;margin:0">{{ o.name }}</h3>
+            <p style="font-size:13.5px;opacity:0.78;margin:0;flex:1;text-wrap:pretty">{{ o.pitch }}</p>
+            <div style="font-size:12px;color:var(--color-accent-700);font-weight:600;margin-top:4px">Fiche complète →</div>
+          </div>
+        </sc-for>
+        <sc-for list="{{ needOffersFill }}" as="f" hint-placeholder-count="1">
+          <div style="background:var(--color-bg)"></div>
+        </sc-for>
+      </div>
+    </section>
+  </main>
+  </sc-if>
+
+  <!-- DOMAINES -->
+  <sc-if value="{{ isDomaines }}" hint-placeholder-val="{{ false }}">
+  <main style="flex:1;padding:40px 40px 72px">
+    <h6 style="color:var(--color-accent);margin-bottom:12px">Domaines d'offre</h6>
+    <h1 style="font-size:44px;margin-bottom:14px">Les six domaines et leurs offres.</h1>
+    <p style="font-size:16px;opacity:0.75;max-width:48em;text-wrap:pretty">Chaque domaine constitue un maillon de chaîne de valeur donnant lieu à un livrable propre. Une prestation peut donc être vendue seule ou intégrée dans un programme plus large.</p>
+    <div style="height:24px"></div>
+    <sc-for list="{{ domainBlocks }}" as="d" hint-placeholder-count="5">
+      <div style="border-top:2px solid var(--color-divider);padding:28px 0 34px">
+        <div style="display:grid;grid-template-columns:1fr 1.4fr;gap:40px;margin-bottom:22px">
+          <div>
+            <span style="color:var(--color-accent);display:block;margin-bottom:12px">{{ d.icon }}</span>
+            <h2 style="font-size:32px;margin:0 0 6px">{{ d.name }}</h2>
+            <span style="font-size:12px;letter-spacing:0.08em;text-transform:uppercase;opacity:0.5">{{ d.count }} offres · budget de référence {{ d.budget }}</span>
+          </div>
+          <div>
+            <p style="font-size:14.5px;line-height:1.6;opacity:0.82;margin:0 0 12px;text-wrap:pretty">{{ d.expertise }}</p>
+            <p style="font-size:13px;opacity:0.7;margin:0 0 8px;text-wrap:pretty"><strong style="font-weight:600">Plaidoyer — </strong>{{ d.plaidoyer }}</p>
+            <p style="font-size:13px;opacity:0.6;margin:0;text-wrap:pretty"><strong style="font-weight:600">Situation — </strong>{{ d.situation }}</p>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--color-divider);border-top:1px solid var(--color-divider)">
+          <sc-for list="{{ d.offers }}" as="o" hint-placeholder-count="6">
+            <div onClick="{{ o.onClick }}" style="background:var(--color-bg);padding:18px 20px;cursor:pointer;display:flex;flex-direction:column;gap:7px" style-hover="background:var(--color-surface)">
+              <span class="{{ o.matClass }}" style="align-self:flex-start">{{ o.mat }}</span>
+              <h4 style="font-size:16px;margin:0">{{ o.name }}</h4>
+              <p style="font-size:12.5px;opacity:0.7;margin:0">{{ o.short }}</p>
+            </div>
+          </sc-for>
+          <sc-for list="{{ d.fill }}" as="f" hint-placeholder-count="2">
+            <div style="background:var(--color-bg)"></div>
+          </sc-for>
+        </div>
+      </div>
+    </sc-for>
+  </main>
+  </sc-if>
+
+  <!-- FICHE OFFRE -->
+  <sc-if value="{{ isOffre }}" hint-placeholder-val="{{ false }}">
+  <main style="flex:1">
+    <div style="padding:18px 40px;border-bottom:2px solid var(--color-divider);display:flex;align-items:center;gap:14px">
+      <button class="btn btn-ghost" onClick="{{ goParcours }}" style="font-size:13px">← Parcours par besoin</button>
+      <span style="font-size:12px;opacity:0.45">/ {{ offre.domName }} / {{ offre.name }}</span>
+    </div>
+    <section style="display:grid;grid-template-columns:1.35fr 1fr;border-bottom:2px solid var(--color-divider)">
+      <div style="padding:44px 40px;border-right:2px solid var(--color-divider)">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px">
+          <span style="color:var(--color-accent);display:block">{{ offre.icon }}</span>
+          <span class="tag tag-neutral">{{ offre.domName }}</span>
+          <span class="{{ offre.matClass }}">{{ offre.mat }}</span>
+        </div>
+        <h1 style="font-size:46px;max-width:19em;margin-bottom:20px">{{ offre.name }}</h1>
+        <p style="font-size:18px;line-height:1.5;max-width:38em;opacity:0.85;text-wrap:pretty">{{ offre.pitch }}</p>
+      </div>
+      <div style="padding:44px 40px;display:flex;flex-direction:column;gap:22px">
+        <div>
+          <h6 style="opacity:0.5;margin-bottom:8px">Cible</h6>
+          <div style="font-size:14.5px;line-height:1.5">{{ offre.cible }}</div>
+        </div>
+        <div>
+          <h6 style="opacity:0.5;margin-bottom:8px">Partenaires &amp; technologies</h6>
+          <div style="display:flex;flex-wrap:wrap;gap:6px">
+            <sc-for list="{{ offre.technos }}" as="t" hint-placeholder-count="4">
+              <span class="tag tag-outline">{{ t }}</span>
+            </sc-for>
+          </div>
+        </div>
+        <div>
+          <h6 style="opacity:0.5;margin-bottom:8px">Documents de référence</h6>
+          <div style="display:flex;flex-direction:column;gap:5px">
+            <sc-for list="{{ offre.docs }}" as="d" hint-placeholder-count="3">
+              <a href="#" style="font-size:13.5px;font-weight:600">{{ d }}</a>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--color-divider);border-bottom:2px solid var(--color-divider)">
+      <div style="background:var(--color-bg);padding:36px 40px">
+        <h6 style="color:var(--color-accent);margin-bottom:16px">Cas d'usage</h6>
+        <sc-for list="{{ offre.cas }}" as="c" hint-placeholder-count="3">
+          <div style="display:grid;grid-template-columns:24px 1fr;gap:12px;padding:13px 0;border-top:1px solid var(--color-divider)">
+            <span style="font-family:var(--font-heading);font-weight:800;font-size:12px;opacity:0.4">{{ c.n }}</span>
+            <p style="margin:0;font-size:14.5px;line-height:1.5;text-wrap:pretty">{{ c.text }}</p>
+          </div>
+        </sc-for>
+      </div>
+      <div style="background:var(--color-bg);padding:36px 40px">
+        <h6 style="color:var(--color-accent);margin-bottom:16px">Périmètre &amp; livrables</h6>
+        <sc-for list="{{ offre.liv }}" as="p" hint-placeholder-count="4">
+          <div style="display:grid;grid-template-columns:24px 1fr;gap:12px;padding:13px 0;border-top:1px solid var(--color-divider)">
+            <span style="color:var(--color-accent);font-weight:800">·</span>
+            <p style="margin:0;font-size:14.5px;line-height:1.5;text-wrap:pretty">{{ p }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <section style="padding:36px 40px;border-bottom:2px solid var(--color-divider)">
+      <h6 style="color:var(--color-accent);margin-bottom:16px">Budget de référence &amp; montage</h6>
+      <table class="table">
+        <thead>
+          <tr><th style="width:40%">Ligne</th><th style="width:24%">Unité</th><th style="width:36%">Budget de référence</th></tr>
+        </thead>
+        <tbody>
+          <sc-for list="{{ offre.tarifs }}" as="t" hint-placeholder-count="2">
+            <tr><td style="font-weight:600">{{ t.ligne }}</td><td style="opacity:0.7">{{ t.unite }}</td><td>{{ t.prix }}</td></tr>
+          </sc-for>
+        </tbody>
+      </table>
+      <p style="font-size:13px;opacity:0.7;margin-top:16px;max-width:52em"><strong style="font-weight:600">Montage — </strong>{{ offre.montage }}</p>
+      <p style="font-size:12px;opacity:0.55;margin-top:6px;max-width:52em">Les fourchettes proviennent du document de travail V02 et servent à cadrer une discussion interne. Toute proposition budgétaire est modulaire, structurée par phase ou par module fonctionnel, et validée avant engagement.</p>
+    </section>
+
+    <section style="padding:36px 40px 68px">
+      <h6 style="color:var(--color-accent);margin-bottom:16px">Références projets</h6>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;border-top:2px solid var(--color-divider);border-bottom:2px solid var(--color-divider);padding:16px 0">
+        <sc-for list="{{ offre.refs }}" as="r" hint-placeholder-count="6">
+          <div style="border:1px solid var(--color-divider);padding:8px 14px;font-size:14px;font-weight:600">{{ r }}</div>
+        </sc-for>
+      </div>
+      <p style="font-size:12px;opacity:0.55;margin-top:14px">Références telles que listées dans le document de travail. Vérifier la citabilité auprès du client avant tout usage externe.</p>
+    </section>
+  </main>
+  </sc-if>
+
+  <!-- QUI CONTACTER -->
+  <sc-if value="{{ isContacts }}" hint-placeholder-val="{{ false }}">
+  <main style="flex:1;padding:44px 40px 72px">
+    <h6 style="color:var(--color-accent);margin-bottom:12px">Qui contacter</h6>
+    <h1 style="font-size:44px;margin-bottom:14px">Un interlocuteur par nature de question.</h1>
+    <p style="font-size:16px;opacity:0.75;max-width:46em;text-wrap:pretty">Le référentiel a été élaboré avec la Direction Technique, la Direction Commerciale, la Direction du Développement et la Direction Générale. Il donne un cadre, il ne se substitue pas à la connaissance des marchés et des opportunités locales portée par la Direction Commerciale.</p>
+    <div class="hr" style="margin:30px 0"></div>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--color-divider);border-top:2px solid var(--color-divider);border-bottom:2px solid var(--color-divider)">
+      <sc-for list="{{ contacts }}" as="c" hint-placeholder-count="6">
+        <div style="background:var(--color-bg);padding:26px 28px;display:flex;flex-direction:column;gap:8px">
+          <span style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-accent)">{{ c.who }}</span>
+          <h3 style="font-size:20px;margin:0">{{ c.title }}</h3>
+          <p style="font-size:13.5px;opacity:0.75;margin:0">{{ c.body }}</p>
+        </div>
+      </sc-for>
+    </div>
+    <h2 style="font-size:26px;margin:44px 0 16px">Partenaires et prestataires cités</h2>
+    <table class="table">
+      <thead><tr><th style="width:24%">Partenaire</th><th style="width:24%">Rôle</th><th style="width:52%">Point de situation</th></tr></thead>
+      <tbody>
+        <sc-for list="{{ partners }}" as="p" hint-placeholder-count="8">
+          <tr><td style="font-weight:600">{{ p.name }}</td><td style="opacity:0.75">{{ p.role }}</td><td style="font-size:13.5px;opacity:0.8">{{ p.note }}</td></tr>
+        </sc-for>
+      </tbody>
+    </table>
+  </main>
+  </sc-if>
+
+  <!-- KIT COMMERCIAL -->
+  <sc-if value="{{ isKit }}" hint-placeholder-val="{{ false }}">
+  <main style="flex:1;padding:44px 40px 72px">
+    <h6 style="color:var(--color-accent);margin-bottom:12px">Kit commercial</h6>
+    <h1 style="font-size:44px;margin-bottom:14px">Les éléments de langage et les leviers d'entrée.</h1>
+    <p style="font-size:16px;opacity:0.75;max-width:46em;text-wrap:pretty">Le document de travail propose cinq leviers pour transformer une contrainte réglementaire ou un engagement international en projet structurant. Ils sont réutilisables sur la plupart des marchés, indépendamment du domaine.</p>
+    <div class="hr" style="margin:30px 0"></div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--color-divider);border-top:2px solid var(--color-divider);border-bottom:2px solid var(--color-divider)">
+      <sc-for list="{{ kit }}" as="k" hint-placeholder-count="6">
+        <div style="background:var(--color-bg);padding:26px 24px;display:flex;flex-direction:column;gap:10px;min-height:210px">
+          <span style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-accent)">{{ k.type }}</span>
+          <h3 style="font-size:19px;margin:0">{{ k.title }}</h3>
+          <p style="font-size:13.5px;opacity:0.78;margin:0;flex:1;text-wrap:pretty">{{ k.body }}</p>
+          <div style="font-size:12px;opacity:0.55">{{ k.ex }}</div>
+        </div>
+      </sc-for>
+    </div>
+    <h2 style="font-size:26px;margin:44px 0 16px">Retours sur investissement mobilisables</h2>
+    <table class="table">
+      <thead><tr><th style="width:34%">Indicateur</th><th style="width:22%">Investissement</th><th style="width:22%">Retour</th><th style="width:22%">Ratio</th></tr></thead>
+      <tbody>
+        <sc-for list="{{ rois }}" as="r" hint-placeholder-count="6">
+          <tr><td style="font-weight:600">{{ r.k }}</td><td style="opacity:0.8">{{ r.inv }}</td><td style="opacity:0.8">{{ r.ret }}</td><td style="color:var(--color-accent-700);font-weight:600">{{ r.ratio }}</td></tr>
+        </sc-for>
+      </tbody>
+    </table>
+    <p style="font-size:12px;opacity:0.55;margin-top:14px">Chiffres repris du document de travail V02 et des études qu'il cite. À sourcer explicitement avant tout usage en proposition.</p>
+  </main>
+  </sc-if>
+
+  <!-- FAQ -->
+  <sc-if value="{{ isFaq }}" hint-placeholder-val="{{ false }}">
+  <main style="flex:1;padding:44px 40px 72px;max-width:1040px">
+    <h6 style="color:var(--color-accent);margin-bottom:12px">FAQ interne</h6>
+    <h1 style="font-size:44px;margin-bottom:30px">Les questions qui reviennent.</h1>
+    <div style="border-top:2px solid var(--color-divider)">
+      <sc-for list="{{ faq }}" as="f" hint-placeholder-count="7">
+        <div style="border-bottom:1px solid var(--color-divider)">
+          <div onClick="{{ f.onClick }}" style="display:flex;gap:20px;align-items:baseline;padding:20px 0;cursor:pointer" style-hover="color:var(--color-accent-700)">
+            <span style="font-family:var(--font-heading);font-weight:800;font-size:20px;color:var(--color-accent);width:24px;flex:none">{{ f.mark }}</span>
+            <h4 style="margin:0;font-size:18px;flex:1">{{ f.q }}</h4>
+          </div>
+          <p style="{{ f.answerStyle }}">{{ f.a }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </main>
+  </sc-if>
+
+  <footer style="border-top:2px solid var(--color-divider);padding:26px 40px;display:flex;justify-content:space-between;align-items:baseline;font-size:12px;opacity:0.55">
+    <span>Document interne — ne pas diffuser hors de l'entreprise. Source : Offre de services, document de travail, version synthèse V02.</span>
+    <span>Chapitre Systèmes d'Information : draft V0.3, 15 février 2026</span>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;direction&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;grille&quot;,&quot;affiche&quot;],&quot;default&quot;:&quot;grille&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Direction visuelle&quot;}}">
+const ICONS = {
+  SF: ["M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8","M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"],
+  GEO: ["M3 3h18v18H3z","M3 9h18","M3 15h18","M9 3v18","M15 3v18"],
+  APPT: ["M3 3v16a2 2 0 0 0 2 2h16","M18 17V9","M13 17V5","M8 17v-3"],
+  SI: ["M18 5a2 2 0 0 1 2 2v8.526a2 2 0 0 0 .212.897l1.068 2.127a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45l1.068-2.127A2 2 0 0 0 4 15.526V7a2 2 0 0 1 2-2z","M20.054 15.987H3.946"],
+  CARTO: ["M18 8c0 3.613-3.869 7.429-5.393 8.795a1 1 0 0 1-1.214 0C9.87 15.429 6 11.613 6 8a6 6 0 0 1 12 0","M8.714 14h-3.71a1 1 0 0 0-.948.683l-2.004 6A1 1 0 0 0 3 22h18a1 1 0 0 0 .948-1.316l-2-6a1 1 0 0 0-.949-.684h-3.712","M12 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4"],
+  OT: ["M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20","M2 12h20","M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"]
+};
+
+const DOMAINS = {
+  SF: {code:"SF", name:"Sécurisation foncière", budget:"Non documenté",
+    line:"Diagnostics fonciers, enquête de terrain, certification massive des droits, renforcement durable des capacités des acteurs locaux et des institutions.",
+    expertise:"Sept maillons, du diagnostic institutionnel au suivi-évaluation, articulés avec les systèmes d'information foncière et l'appui aux politiques publiques. À terme, la distinction SF / SIF doit être abolie au profit d'une chaîne foncière présentée globalement.",
+    plaidoyer:"La sécurisation des droits conditionne l'accès au crédit, la formalisation de la propriété et la réduction des conflits. Les retours documentés en Afrique atteignent un ratio de quinze pour un.",
+    situation:"Position en recul depuis 2025 : positionnement tarifaire trop élevé face à la capacité de paiement du marché, avantage technique égalé par des concurrents locaux, et transfert de la maîtrise des projets aux maîtrises d'ouvrage nationales."},
+  GEO: {code:"GEO", name:"Géodésie", budget:"1 – 5 M€",
+    line:"Infrastructures géodésiques, stations GNSS permanentes, réseaux et systèmes de référence, services de positionnement, gravimétrie, géoïde, délimitation de frontières.",
+    expertise:"De la collecte des données GNSS à leur distribution sécurisée, en passant par les réseaux CORS et les bases de données géodésiques, l'offre couvre l'ensemble des besoins en positionnement de haute précision. Expertise développée depuis 1986 en synergie avec l'IGN.",
+    plaidoyer:"La géodésie est l'ossature invisible de tous les travaux de précision. Trois milliards d'applications mobiles dépendent de données de positionnement, alors que la moitié des stations GNSS mondiales sont vieillissantes ou dégradées.",
+    situation:"Expertise historique et différenciante, mais technique et discrète, donc difficile à promouvoir hors des cercles experts. Le défi est de la rendre visible comme maillon des chaînes d'approvisionnement géodésiques."},
+  APPT: {code:"APPT", name:"Appui aux politiques publiques", budget:"Non documenté",
+    line:"Conseil pour la conception et le suivi de réformes, conception de stratégies opérationnelles, appui à la gouvernance foncière, planification stratégique territoriale, observatoires du territoire.",
+    expertise:"Positionner l'entreprise comme architecte métier de la réforme et intégrateur des volets techniques, institutionnels et financiers. Le diagnostic sert de point d'entrée stratégique dans un programme plus large.",
+    plaidoyer:"Les obligations réglementaires, les engagements internationaux et les classements créent des besoins de production et de diffusion de données géospatiales. Ces contraintes se transforment en projets structurants.",
+    situation:"Domaine à structurer commercialement. La méthode proposée est agnostique : elle s'applique à la plupart des marchés et se réutilise en foncier comme en observation de la Terre."},
+  SI: {code:"SI", name:"Systèmes d'information", budget:"0,5 – 5 M€",
+    line:"Infrastructures de données spatiales, plateformes SIG, interopérabilité et gestion de l'information géographique. Systèmes d'Information Foncière (SIF). Plateformes blockchain de certification et de tokenisation.",
+    expertise:"Conception, intégration et valorisation de SIG, de SIF et de plateformes de données géospatiales. Le cycle complet : stratégie de transformation digitale, schéma directeur, étude de faisabilité, réingénierie des procédures, analyse, développement, déploiement, transfert de compétence, support et maintenance.",
+    plaidoyer:"Les systèmes d'information géographiques et fonciers sont le socle numérique fiable indispensable à la gouvernance territoriale, à la sécurisation du foncier et à l'optimisation de l'urbanisme.",
+    situation:"IGN FI couvre l'ensemble de la chaîne de valeur technique, hors phase de conseil pour la construction des programmes. Bien positionnée pour le conseil auprès des décideurs, l'entreprise doit être plus présente sur ces prestations."},
+  CARTO: {code:"CARTO", name:"Cartographie et imagerie", budget:"Non documenté",
+    line:"Acquisition de données et production de cartographie digitale précise et détaillée. Traitement de données spatiales. Orthophotographies, MNT/MNS, bases de données 2D et 3D.",
+    expertise:"Acquisition de données et production de cartographie digitale précise et détaillée, traitement de données spatiales, orthophotographies, modèles numériques de terrain et de surface, bases de données topographiques 2D et 3D.",
+    plaidoyer:"Sans référentiel cartographique à jour, ni le foncier, ni l'urbanisme, ni la gestion des risques ne peuvent être conduits. C'est le socle sur lequel tous les autres domaines s'appuient.",
+    situation:"Domaine présent sur le site mais absent du document de travail V02 : les fiches ci-dessous sont reconstituées d'après la page publique et restent à écrire avec la Direction Technique."},
+  OT: {code:"OT", name:"Observation de la Terre", budget:"Non documenté",
+    line:"Acquisition de données satellitaires, aéroportées, drone et LiDAR. Traitement intelligent de la donnée pour l'aide à la décision dans les domaines de l'agriculture, l'environnement, l'urbanisme, le climat et la défense.",
+    expertise:"Positionnement d'intégrateur : transformer la donnée spatiale (optique, radar, thermique) couplée à l'intelligence artificielle en solutions métier, conçues pour répondre aux contraintes réglementaires, aux enjeux de souveraineté et à la gestion des risques.",
+    plaidoyer:"Le programme Copernicus rend la donnée accessible ; la valeur se déplace vers l'interprétation. C'est là que se situe notre positionnement d'intégrateur, avec validation experte en boucle humaine.",
+    situation:"Domaine le plus récent de l'offre, porté par les obligations réglementaires extraterritoriales et les besoins de reporting extra-financier. Synergie forte avec les capacités du groupe GEOFIT."}
+};
+
+const REF = {
+  GEO: ["Cameroun — MINDCAF","Cameroun — PAMOCCA","Togo — Phasao","Abu Dhabi","Émirats arabes unis","Laos","Ouganda","Sénégal — PROCASEF","Sénégal — DTGC/ANAT","Haïti","Arabie saoudite — GCS","Arabie saoudite — JTC Frontières","Arabie saoudite — SAJOB","Bénin — PAPDFGC","Libéria","Yémen","Gravimétrie régionale Afrique de l'Ouest"],
+  SI: ["SIGFU — B2B","SIFOR — Banque mondiale","NALISEP — Banque mondiale","LARIS — B2B","PGIIS","DESINLISI — Banque mondiale","ILMIS — Banque mondiale","Équateur — BID","T&D — Banque mondiale, LATAM"],
+  SF: ["Madagascar — CASEF","Madagascar — ARSF","Côte d'Ivoire — AFOR","Côte d'Ivoire — PAMOFOR","Sénégal — LTS01 & LTS02","Sénégal — AIDEP","Sénégal — POS","Mozambique — MozLand","Burundi — PPRPB","Burkina Faso — LTP45","Maroc — MCC","Mali — Office du Niger","Multi-pays — PARIIS","Nicaragua — Prodep","Panama — PRONAT","Ouganda — DeSILISoR","Tunisie — EU DGOMI"],
+  APPT: ["Multi-pays — PARIIS","Mauritanie — inventaire 11 wilayas","Madagascar — ARSF","Maroc — MCC","Sénégal — Faisabilité Tiers Sud 2"],
+  CARTO: ["Références à consolider avec la DT"],
+  OT: ["Contexte Copernicus (UE)","Synergie groupe GEOFIT"]
+};
+
+const DOCS_COMMON = ["Offre de services — synthèse V02 (PDF)","Fiches projets du domaine","Tableau ROI du domaine"];
+
+const O = (id, dom, name, mat, short, pitch, cible, cas, liv, tarifs, montage, technos, refs, docs) =>
+  ({id, dom, name, mat, short, pitch, cible, cas, liv, tarifs, montage, technos, refs: refs || REF[dom].slice(0,6), docs: docs || DOCS_COMMON});
+
+const ND = "Non documenté dans la V02";
+const OFFERS = [
+  // ——— GÉODÉSIE
+  O("geo-conseil","GEO","Conseil, études préalables et AMO géodésique","Historique",
+    "Appui institutionnel, études de modernisation et assistance à maîtrise d'ouvrage.",
+    "Appuyer les institutions dans la maîtrise et la gestion de leurs infrastructures géodésiques : assistance à maîtrise d'ouvrage, études de modernisation des réseaux, formations et transferts de compétences pour autonomiser progressivement les équipes nationales.",
+    "Administrations en charge de la géodésie nationale, de la cartographie nationale et du cadastre.",
+    [{n:"01",text:"Un État veut moderniser ses référentiels géodésiques et altimétriques mais n'a pas de diagnostic partagé de l'existant."},{n:"02",text:"Une administration doit insérer la géodésie dans ses systèmes décisionnels — SIG, cadastre, cartographie, gestion territoriale."},{n:"03",text:"Un décideur non expert doit être convaincu du retour sur investissement d'une infrastructure géodésique."}],
+    ["État des lieux des réseaux géodésiques et altimétriques existants","Diagnostic et conception de programme, assistance à maîtrise d'ouvrage","Études d'intégration dans les politiques publiques et les systèmes décisionnels","Formations spécialisées et transfert de compétences"],
+    [{ligne:"Études préalables et AMO",unite:"Composante de programme",prix:ND},{ligne:"Programme d'infrastructure géodésique nationale",unite:"Ensemble",prix:"1 – 5 M€"}],
+    "Rarement vendable seul : à inscrire comme point d'entrée d'un programme multi-composantes de modernisation (cartographie, foncier, urbanisme, environnement).",
+    ["IGN","Consultants experts"], ["Cameroun — MINDCAF","Togo — Phasao","Abu Dhabi","Laos","Ouganda"]),
+  O("geo-cors","GEO","Réseaux de stations permanentes (CORS)","Historique",
+    "Réseau CORS, centre de calcul et portail utilisateurs, en un ensemble.",
+    "Concevoir et déployer des réseaux CORS avec centre de contrôle pour les services RTK et NRTK, rattachés à la référence internationale IGS, avec une plateforme de diffusion des données GNSS en temps réel ou en post-traitement.",
+    "Administrations en charge de la géodésie et de la cartographie nationale ; administrations de l'eau, de l'énergie, des transports, du foncier et des routes.",
+    [{n:"01",text:"Un État veut reprendre la maîtrise souveraine de ses données de positionnement plutôt que dépendre de services privés étrangers."},{n:"02",text:"Le UNGGCE constate en 2024 que la moitié des stations GNSS mondiales sont vieillissantes ou dégradées : une chaîne d'approvisionnement à reconstruire."},{n:"03",text:"Un grand projet d'infrastructure exige une précision centimétrique sur l'ensemble d'un territoire."}],
+    ["Installation des stations GNSS permanentes","Centre de calcul et centre de services (portail utilisateurs)","Mise en référentiel des infrastructures existantes, terrestres et CORS","Appui institutionnel, formation, support et maintenance"],
+    [{ligne:"Infrastructure géodésique nationale complète",unite:"Programme",prix:"1 – 5 M€"},{ligne:"Variante CORS bas coût",unite:"Programme",prix:"À construire — piste identifiée"}],
+    "Affaire bailleur de fonds ou direct client, avec financement local ou privé apporté par nous. Expertise et pilotage internes, stations par un fournisseur de référence, reste sous-traité à l'opérateur local. Coupler l'installation de CORS avec l'altimétrie pour une modernisation complète.",
+    ["Leica","Prestataires locaux","IGS"], ["Cameroun — MINDCAF","Togo — Phasao","Abu Dhabi","Laos","Ouganda","Sénégal — PROCASEF"]),
+  O("geo-reseaux","GEO","Mise à jour des réseaux terrestres","Historique",
+    "Réhabilitation planimétrique et altimétrique : observations, calculs, transformation.",
+    "Concevoir des systèmes géodésiques 3D cohérents et conduire des observations GNSS de haute précision pour réhabiliter les réseaux existants, avec calculs et ajustements géodésiques et détermination des paramètres de transformation vers les systèmes anciens.",
+    "Administrations en charge de la géodésie nationale et du cadastre.",
+    [{n:"01",text:"Un réseau matérialisé ancien n'est plus exploitable et aucune passerelle n'existe vers le système actuel."},{n:"02",text:"Un programme foncier exige un canevas géodésique densifié avant les levés."}],
+    ["Installation et observation de réseaux planimétriques et altimétriques","Campagnes GNSS, gravimétrie, nivellement","Calculs et ajustements avec Infinity, Bernese, GAMIT/GLOBK","Paramètres de transformation vers les systèmes anciens ; densification du canevas"],
+    [{ligne:"Campagne d'observation et calcul",unite:"Composante",prix:ND}],
+    "Généralement une composante d'un programme géodésique ou foncier plus large.",
+    ["Infinity","Bernese","GAMIT/GLOBK"], ["Gravimétrie régionale Afrique de l'Ouest","Yémen","Laos","Ouganda","Sénégal — PROCASEF","Haïti","Arabie saoudite — GCS"]),
+  O("geo-geoide","GEO","Calcul de géoïde local précis","Historique",
+    "Référentiel altimétrique précis et grille de conversion livrée.",
+    "Concevoir et installer des référentiels altimétriques précis à partir de mesures de nivellement de précision et de campagnes de gravimétrie, pour permettre une exploitation fiable des altitudes dans des usages critiques comme la cartographie et le génie civil.",
+    "Administrations de la géodésie et de la cartographie nationale ; maîtres d'ouvrage d'infrastructures.",
+    [{n:"01",text:"Les altitudes disponibles ne permettent pas de dimensionner un ouvrage hydraulique ou routier."},{n:"02",text:"Un modèle de géoïde manque pour exploiter les mesures GNSS en altimétrie."}],
+    ["Campagnes de nivellement de précision et de gravimétrie","Calcul du modèle de géoïde","Grille de conversion livrée","Intégration des réseaux de nivellement existants"],
+    [{ligne:"Modèle de géoïde national",unite:"Composante",prix:ND}],
+    "À coupler avec l'installation de CORS pour proposer une modernisation altimétrique et planimétrique complète.",
+    ["Gravimétrie","Nivellement de précision"], ["Bénin — PAPDFGC","Émirats arabes unis","Laos","Libéria","Ouganda","Cameroun — PAMOCCA"]),
+
+  // ——— APPT
+  O("appt-reformes","APPT","Conseil pour la conception et le suivi de réformes","À structurer",
+    "Études de faisabilité et évaluations pour traduire une politique en enjeux spatialisés.",
+    "Aider le décideur à traduire ses objectifs politiques — climat, foncier — en enjeux spatialisés et à modéliser des scénarios de réforme réalistes, par des études de faisabilité et des évaluations.",
+    "Ministères et agences porteurs d'une réforme sectorielle ou territoriale ; bailleurs de fonds.",
+    [{n:"01",text:"Un gouvernement a annoncé une réforme foncière ou climatique sans en avoir mesuré les implications territoriales."},{n:"02",text:"Un bailleur doit évaluer un programme en cours et arbitrer sa poursuite."}],
+    ["Étude de faisabilité ou évaluation","Traduction des objectifs politiques en enjeux spatialisés","Modélisation de scénarios de réforme","Chiffrage prévisionnel des investissements identifiés"],
+    [{ligne:"Étude de faisabilité ou évaluation",unite:"Mission",prix:ND},{ligne:"Option « fast track » ciblée",unite:"Mission courte",prix:"À construire"}],
+    "Le diagnostic est le point d'entrée stratégique d'un programme plus large. Privilégier des options « fast track » ciblées, visibles et à impact immédiat, plutôt que des études de faisabilité interminables qui s'éloignent des priorités politiques.",
+    ["Modélisation de scénarios","Analyse spatiale"], null),
+  O("appt-strategies","APPT","Co-construction de stratégies et feuilles de route","À structurer",
+    "Transformer des constats en stratégie partagée, opérationnelle et finançable.",
+    "Transformer les constats et les objectifs en une stratégie partagée, opérationnelle et finançable, comprenant une vision spatiale des priorités d'action, des choix technico-institutionnels robustes et un plan opérationnel réaliste.",
+    "Ministères, agences nationales, collectivités ; bailleurs finançant la phase de préparation.",
+    [{n:"01",text:"Plusieurs institutions poursuivent des objectifs concurrents sans arbitrage spatialisé."},{n:"02",text:"Une stratégie existe sur le papier mais n'est ni chiffrée ni séquencée, donc non finançable."}],
+    ["Vision spatiale des priorités d'action","Choix technico-institutionnels documentés","Feuille de route progressive et à tiroirs","Chiffrage prévisionnel dans une logique « value for money »"],
+    [{ligne:"Feuille de route stratégique",unite:"Mission",prix:ND}],
+    "Feuilles de route progressives et à tiroirs : chaque palier est finançable seul et prépare le suivant.",
+    ["Ateliers multi-acteurs","Cartographie des priorités"], null),
+  O("appt-conception","APPT","Conception technique et organisationnelle","À structurer",
+    "Architectures SI, référentiels souverains et modèles de gouvernance.",
+    "Concevoir les dispositifs numériques et organisationnels — systèmes d'information, observatoires, réseaux de collecte — qui rendent possible la mise en œuvre des stratégies : définition des architectures SI, structuration des référentiels souverains, modèles de gouvernance.",
+    "Maîtrises d'ouvrage nationales et agences techniques.",
+    [{n:"01",text:"Une stratégie validée n'a pas de dispositif technique pour être exécutée ni suivie."},{n:"02",text:"Les référentiels de données sont dispersés entre institutions, sans autorité désignée."}],
+    ["Architecture du système d'information cible","Structuration des référentiels souverains","Conception d'observatoires et de réseaux de collecte","Modèle de gouvernance et instances associées"],
+    [{ligne:"Conception d'architecture et de gouvernance",unite:"Mission",prix:ND}],
+    "S'articule directement avec l'offre Systèmes d'information pour la phase de réalisation.",
+    ["Architecture SI","Référentiels souverains"], null),
+  O("appt-carto","APPT","Cartographie de phénomène, de risque et observatoires","À structurer",
+    "Indicateurs spatialisés fiables pour piloter une politique publique.",
+    "Fournir des indicateurs spatialisés fiables — occupation du sol, artificialisation — pour piloter les politiques environnementales, agricoles et énergétiques, en visant le reporting standardisé, la conformité réglementaire et la priorisation des investissements.",
+    "Ministères de l'environnement, de l'agriculture, de l'aménagement ; agences de l'urbanisme.",
+    [{n:"01",text:"Une obligation de reporting type ZAN ou PAC impose des indicateurs d'occupation du sol comparables dans le temps."},{n:"02",text:"Un observatoire de l'urbanisme doit être créé pour suivre l'artificialisation."}],
+    ["Référentiels d'occupation du sol et d'artificialisation","Cartographie de phénomènes et de risques","Observatoire de l'urbanisme : dispositif et indicateurs","Chaîne de reporting standardisée"],
+    [{ligne:"Production d'indicateurs spatialisés",unite:"Mission",prix:ND}],
+    "Levier d'entrée par la contrainte réglementaire : expliciter les implications concrètes du texte pour l'administration, puis proposer le dispositif de conformité.",
+    ["Observation de la Terre","Corine Land Cover","Urban Atlas"], null),
+  O("appt-gouv-fonciere","APPT","Appui à la gouvernance foncière","À structurer",
+    "Rendre les décisions foncières prédictibles, opposables et lisibles.",
+    "Mettre en place le dispositif de pilotage public qui rend les décisions foncières prédictibles, opposables et lisibles : fiabilisation des règles, arbitrage des conflits d'usage, instances et procédures garantissant la traçabilité et la transparence.",
+    "Ministères en charge du foncier, agences foncières nationales, collectivités.",
+    [{n:"01",text:"Les décisions foncières sont contestées faute de règles écrites et opposables."},{n:"02",text:"Les conflits d'usage entre agriculture, urbanisation et conservation n'ont pas d'instance d'arbitrage."}],
+    ["Fiabilisation et mise en cohérence des règles foncières","Dispositif d'arbitrage des conflits d'usage","Instances de gouvernance et procédures de traçabilité","Indicateurs de transparence"],
+    [{ligne:"Appui à la gouvernance foncière",unite:"Mission",prix:ND}],
+    "S'articule avec la sécurisation foncière et les systèmes d'information foncière : la gouvernance donne la cohérence institutionnelle que les deux autres exécutent.",
+    ["Cadre juridique","Instances multi-acteurs"], REF.SF.slice(0,6)),
+  O("appt-schema","APPT","Schéma directeur et planification","À structurer",
+    "Vision stratégique, plan de gouvernance et catalogue de projets chiffrés.",
+    "Élaborer les documents de vision stratégique et d'orientations générales — objectifs, valeurs, priorités — accompagnés du plan de gouvernance et de pilotage et d'un catalogue de projets priorisés avec coûts estimatifs.",
+    "Directions générales d'administrations, agences nationales, autorités territoriales.",
+    [{n:"01",text:"Un budget pluriannuel doit être arbitré entre chantiers concurrents sans vision d'ensemble."},{n:"02",text:"Une administration doit présenter une trajectoire crédible à son bailleur."}],
+    ["Document de vision stratégique et d'orientations","Plan de gouvernance et de pilotage","Catalogue de projets priorisés avec coûts estimatifs","Trajectoire séquencée"],
+    [{ligne:"Schéma directeur",unite:"Mission",prix:ND}],
+    "Le catalogue de projets chiffré prépare les affaires suivantes : c'est autant un livrable client qu'un outil de développement commercial.",
+    ["Planification stratégique"], null),
+  O("appt-diffusion","APPT","Politique de diffusion de données","À structurer",
+    "Règles d'ouverture, de partage et de sécurité des données géospatiales.",
+    "Co-construire les règles et les stratégies gouvernant la gestion, l'ouverture et le partage des données géospatiales, en garantissant la qualité, la sécurité et l'accessibilité des données diffusées.",
+    "Administrations productrices de données géospatiales, autorités de la donnée, agences NSDI.",
+    [{n:"01",text:"Une directive de type INSPIRE impose des obligations de structuration, de partage et de standardisation."},{n:"02",text:"Un géoportail existe mais aucune règle ne dit ce qui peut être ouvert, à qui, et à quelles conditions."}],
+    ["Règles de gestion, d'ouverture et de partage","Politique de qualité et de sécurité des données","Conditions d'accès et de licence","Dispositif de suivi de la conformité"],
+    [{ligne:"Politique de diffusion de données",unite:"Mission",prix:ND}],
+    "Complément naturel d'un géoportail ou d'une infrastructure de données spatiales : sans règles de diffusion, la plateforme reste sous-utilisée.",
+    ["INSPIRE","Open data","NSDI"], null),
+
+  // ——— SI
+  O("si-ba","SI","Business Analysis et reengineering des process","Historique",
+    "Diagnostic BPMN et refonte des circuits fonciers, cadastraux et fiscaux.",
+    "Analyser, refondre et optimiser les circuits opérationnels — foncier, cadastral, fiscal — en s'appuyant sur la modélisation BPMN pour diagnostiquer les blocages, redéfinir les rôles et proposer des processus modernisés et interopérables.",
+    "Administrations foncières et cadastrales, directions des impôts, agences de modernisation.",
+    [{n:"01",text:"Une transaction foncière prend plusieurs mois et personne ne sait où se situe le goulot d'étranglement."},{n:"02",text:"Un développement de SI est demandé alors que le processus métier n'a jamais été redéfini."},{n:"03",text:"Deux administrations se partagent une procédure sans interface définie."}],
+    ["Cartographie des processus existants en BPMN","Diagnostic des blocages et des redondances","Processus cibles modernisés et interopérables","Redéfinition des rôles et des responsabilités"],
+    [{ligne:"Business Analysis",unite:"Mission",prix:"1 – 2 M€"}],
+    "Cadrage fonctionnel clair et contractuel avant tout engagement de développement. C'est la brique qui protège la suite du projet.",
+    ["BPMN"], REF.SI),
+  O("si-sif","SI","Développement et déploiement de SIF","Historique",
+    "Système d'information foncière sur mesure, modulaire, distribué et hors ligne.",
+    "Concevoir, développer et maintenir des systèmes d'information foncière sur mesure. Le SIF centralise et sécurise les données foncières ; il est modulaire, évolutif et conçu pour fonctionner en environnement distribué et hors ligne avec synchronisation différée.",
+    "Administrations foncières nationales, agences cadastrales, collectivités.",
+    [{n:"01",text:"Les transactions liées à l'enregistrement des droits sont tenues sur registres papier et les archives se dégradent."},{n:"02",text:"Un déploiement doit fonctionner dans des services déconcentrés sans connexion permanente."},{n:"03",text:"Une administration veut un système modulaire, déployable commune par commune plutôt qu'en un seul chantier national."}],
+    ["Conception fonctionnelle et technique du SIF","Développement sur noyau réutilisable, modulaire et évolutif","Mode distribué et hors ligne avec synchronisation différée","Dématérialisation et ingestion des archives physiques : plans, titres","Maintenance et transfert de compétences par profil utilisateur"],
+    [{ligne:"SIF national complet",unite:"Programme",prix:"1 – 5 M€"},{ligne:"Module fonctionnel",unite:"Par module",prix:"Chiffrage modulaire par phase"}],
+    "Propositions budgétaires modulaires, structurées par phase ou par module fonctionnel, avec engagement sur les résultats livrables. Modèle mixte international/local pour l'ancrage et le transfert de compétences.",
+    ["Neogeo","Innola","PostgreSQL/PostGIS","GeoServer","QGIS"], REF.SI),
+  O("si-portails-fonciers","SI","Portails fonciers","Historique",
+    "Consultation sécurisée et suivi des dossiers en ligne, public et professionnels.",
+    "Développer des plateformes numériques pour le public et les professionnels, permettant la consultation sécurisée des titres et des plans et le suivi des dossiers en ligne, ce qui renforce la sécurité juridique et la transparence du foncier.",
+    "Administrations foncières ; notaires, banques et acteurs économiques comme utilisateurs professionnels.",
+    [{n:"01",text:"Les usagers doivent se déplacer au guichet pour toute vérification de titre."},{n:"02",text:"Les notaires et les banques ont besoin d'un accès professionnel fiable avant transaction ou octroi de crédit."}],
+    ["Portail public de consultation sécurisée : titres, plans","Espace professionnel et suivi des dossiers en ligne","API professionnelles pour notaires, banques et acteurs économiques","Traçabilité des consultations"],
+    [{ligne:"Portail foncier",unite:"Composante",prix:"Chiffrage modulaire par phase"}],
+    "L'intégration des API professionnelles est l'argument clé : elle ouvre des services à forte valeur ajoutée pour les notaires, les banques et les autres acteurs économiques, et donc un modèle de revenus pour l'administration.",
+    ["API professionnelles","PostgreSQL/PostGIS"], REF.SI),
+  O("si-portails-urba","SI","Portails de l'urbanisme et de l'environnement","Historique",
+    "Centraliser et partager PLU, zonages et documents réglementaires.",
+    "Concevoir des plateformes spécialisées pour centraliser et partager les informations réglementaires, spatiales et documentaires — PLU, zonages — au service de la planification territoriale, de l'aménagement et de la transparence des usages du sol.",
+    "Ministères de l'urbanisme et de l'environnement, agences d'aménagement, collectivités.",
+    [{n:"01",text:"Les documents d'urbanisme opposables ne sont pas consultables et sont contestés."},{n:"02",text:"Un aménageur ne peut pas vérifier les contraintes réglementaires d'une emprise sans passer par plusieurs services."}],
+    ["Plateforme de centralisation des documents réglementaires","Publication des zonages et des règles opposables","Outils de consultation par emprise","Chaîne de mise à jour et de versionnement"],
+    [{ligne:"Portail urbanisme / environnement",unite:"Composante",prix:"Chiffrage modulaire par phase"}],
+    "Point d'entrée naturel des politiques publiques territoriales : le portail matérialise la réforme et la rend visible.",
+    ["QGIS","GeoServer","PostgreSQL/PostGIS"], REF.SI),
+  O("si-blockchain","SI","Intégration blockchain foncière","À formuler",
+    "Traçabilité et archivage inviolable des opérations foncières.",
+    "Intégrer la technologie blockchain pour sécuriser les titulaires de droits et garantir la traçabilité et l'archivage inviolable des opérations foncières — sous réserve d'un SIF source fiable et d'un cadre juridique clair.",
+    "Administrations foncières disposant déjà d'un SIF fiable et d'un cadre juridique établi.",
+    [{n:"01",text:"Les mutations de droits sont contestées et l'historique des opérations est altérable."},{n:"02",text:"Un bailleur ou un investisseur exige une preuve d'inaltérabilité des enregistrements."}],
+    ["Analyse de faisabilité juridique et technique","Ancrage des opérations foncières","Dispositif de traçabilité et d'archivage inviolable","Conditions de recevabilité juridique"],
+    [{ligne:"Composante blockchain",unite:"Composante",prix:ND}],
+    "Ne pas vendre en tête de proposition : la valeur dépend entièrement de la fiabilité du SIF source et de la clarté du cadre juridique. À positionner comme option de sécurisation.",
+    ["Blockchain"], REF.SI.slice(0,5)),
+  O("si-ia","SI","IA et Big Data","En développement",
+    "OCR et IA sur les documents, détection d'anomalies, agents conversationnels.",
+    "Des solutions d'intelligence artificielle pour l'analyse et la prédiction : agents conversationnels, classification automatique de documents par OCR et IA, détection d'anomalies dans les données cadastrales.",
+    "Administrations foncières et cadastrales ; toute administration disposant d'un fonds documentaire massif.",
+    [{n:"01",text:"Des dizaines de milliers de titres et de plans papier doivent être classés et indexés."},{n:"02",text:"Les incohérences cadastrales ne sont détectées qu'au contentieux."},{n:"03",text:"Les agents passent leur temps à répondre aux mêmes questions d'usagers."}],
+    ["Diagnostic des données disponibles","Preuve de concept rapide sur un cas d'usage","Classification automatique de documents : OCR et IA","Détection d'anomalies dans les données cadastrales","Agents conversationnels"],
+    [{ligne:"Diagnostic des données et POC",unite:"Phase courte",prix:"À construire"},{ligne:"Industrialisation",unite:"Par cas d'usage",prix:ND}],
+    "Approche incrémentale obligatoire : débuter par un diagnostic des données puis un POC rapide. Ne jamais engager l'industrialisation avant d'avoir mesuré la qualité des données.",
+    ["OCR","IA","Python"], REF.SI.slice(0,5)),
+  O("si-geoportails","SI","Géoportails et géoplateformes","Historique",
+    "Socle cartographique de référence national ou sectoriel.",
+    "Des plateformes pour centraliser, publier et exploiter des données géographiques multi-sources, servant de socle cartographique de référence national ou sectoriel au bénéfice de la planification territoriale et de l'open data.",
+    "Instituts géographiques nationaux, agences NSDI, ministères sectoriels.",
+    [{n:"01",text:"Chaque institution produit et conserve ses propres couches, sans référentiel commun."},{n:"02",text:"Un engagement d'open data géographique doit être matérialisé par une plateforme."}],
+    ["Architecture de la plateforme et modèle de données","Ingestion et publication de données multi-sources","Services de diffusion normalisés","Socle cartographique de référence","Transfert de compétences aux équipes locales"],
+    [{ligne:"Géoplateforme nationale",unite:"Programme",prix:"500 000 € – 1,2 M€"}],
+    "Architecture interopérable appuyée sur des infrastructures souveraines — cloud local ou datacenter gouvernemental — et des composants open source robustes.",
+    ["GeoServer","PostgreSQL/PostGIS","QGIS","Neogeo"], REF.SI),
+  O("si-dataviz","SI","Dataviz et tableaux de bord","En développement",
+    "Tableaux de bord dynamiques pour le suivi des indicateurs et l'aide à la décision.",
+    "Des solutions de datavisualisation interactives et dynamiques pour transformer des données complexes en informations stratégiques, notamment des tableaux de bord de suivi des indicateurs de performance fonciers et d'aide à la décision.",
+    "Directions générales d'administrations, cellules de pilotage de programmes, bailleurs.",
+    [{n:"01",text:"Un programme foncier doit rendre compte de son avancement à un bailleur, chiffres à l'appui."},{n:"02",text:"Un décideur n'a aucune vue consolidée de son parc de données."}],
+    ["Définition des indicateurs avec les métiers","Tableaux de bord dynamiques","Chaîne d'alimentation automatisée","Formation des utilisateurs"],
+    [{ligne:"Tableaux de bord",unite:"Composante",prix:ND}],
+    "Composante à forte visibilité politique : souvent le livrable qui fait exister le projet aux yeux du décideur.",
+    ["Dataviz","PostgreSQL/PostGIS"], REF.SI.slice(0,5)),
+  O("si-3d","SI","Maquette 3D et jumeau numérique","En développement",
+    "Simuler l'évolution d'un territoire et analyser des données métier en 3D.",
+    "Développer des représentations immersives — maquettes 3D — et des plateformes dynamiques — jumeaux numériques — permettant de simuler l'évolution d'un territoire, en urbanisme comme en fiscalité, et d'analyser des données métier complexes en trois dimensions.",
+    "Collectivités urbaines, agences d'aménagement, ministères de l'urbanisme.",
+    [{n:"01",text:"Un projet d'aménagement doit être présenté et débattu avec des parties prenantes non techniques."},{n:"02",text:"L'impact fiscal d'une densification doit être simulé avant décision."}],
+    ["Modélisation 3D du bâti","Plateforme de jumeau numérique","Scénarios de simulation urbanistique et fiscale","Analyse de données métier en 3D"],
+    [{ligne:"Maquette 3D ou jumeau numérique",unite:"Composante",prix:ND}],
+    "Fort effet de démonstration en avant-vente. À articuler avec l'observation de la Terre pour l'acquisition du bâti et des hauteurs.",
+    ["CesiumJS","Unreal Engine"], REF.SI.slice(0,5)),
+  O("si-mobile","SI","Applications mobiles","Historique",
+    "Saisie terrain et consultation en mode déconnecté.",
+    "Développer des applications professionnelles et citoyennes qui étendent les capacités des systèmes d'information sur le terrain, permettant la saisie de données et la consultation de documents en mode déconnecté.",
+    "Opérateurs de collecte terrain, guichets fonciers déconcentrés, usagers.",
+    [{n:"01",text:"Les agents collectent sur papier puis ressaisissent, avec les erreurs que cela implique."},{n:"02",text:"Les zones d'intervention n'ont pas de couverture réseau fiable."}],
+    ["Application de saisie terrain en mode déconnecté","Synchronisation différée avec le système central","Consultation de documents hors ligne","Application citoyenne de suivi de dossier"],
+    [{ligne:"Application mobile",unite:"Composante",prix:ND}],
+    "Rarement vendue seule : c'est le prolongement terrain d'un SIF ou d'une opération de certification de masse.",
+    ["Mobile hors ligne","Synchronisation différée"], REF.SI.slice(0,5)),
+  O("si-thematiques","SI","SI thématiques","En développement",
+    "Systèmes métier pour le télécom, le routier, le minier, le patrimoine.",
+    "Concevoir et mettre en œuvre des systèmes d'information sur mesure pour des secteurs spécifiques — télécom, routier, minier, patrimoine — structurant des données métier complexes pour la gestion technique et stratégique des actifs.",
+    "Opérateurs télécom et miniers, gestionnaires de réseaux et d'infrastructures, services du patrimoine. Cible B2B prioritaire.",
+    [{n:"01",text:"Un opérateur de réseau ne connaît pas précisément l'emprise et l'état de ses actifs."},{n:"02",text:"Un service minier doit suivre les titres, les périmètres et l'activité réelle."},{n:"03",text:"Un dispositif de type DT-DICT doit être créé, sur le modèle des plateformes déjà répliquées au Togo, au Bénin et en Côte d'Ivoire."}],
+    ["Structuration du référentiel métier","Système de gestion technique des actifs","Interfaces avec les systèmes existants","Tableaux de bord de pilotage"],
+    [{ligne:"SI thématique",unite:"Programme",prix:ND}],
+    "Le principal gisement B2B du domaine, encore insuffisamment exploité. À rapprocher des obligations réglementaires sectorielles.",
+    ["PostgreSQL/PostGIS","GeoServer","QGIS"], REF.SI.slice(0,5)),
+
+  // ——— SF (7 maillons)
+  O("sf-m1","SF","Diagnostic et gouvernance institutionnelle","Historique",
+    "Maillon 1 — comprendre la situation institutionnelle et proposer une structuration.",
+    "Comprendre la situation institutionnelle foncière, identifier les acteurs, les rôles et les lacunes, puis proposer une structuration : audit des structures foncières, diagnostic participatif, analyses et zonages territoriaux, plans d'action institutionnels.",
+    "Ministères et agences foncières, services déconcentrés, bailleurs en phase de préparation.",
+    [{n:"01",text:"Plusieurs institutions revendiquent la même compétence foncière et les procédures se contredisent."},{n:"02",text:"Un programme doit démarrer sans que les droits, les conflits et les modes de tenure aient été diagnostiqués."},{n:"03",text:"Une agence foncière doit être créée ou restructurée."}],
+    ["Audit institutionnel complet : structures, autorités, capacités, processus","Diagnostic participatif et multi-acteurs, analyse genre et groupes vulnérables","Analyses et zonages territoriaux : usages des sols, vulnérabilités, zones à enjeux","Plans d'action institutionnels : structuration, fiches de poste, feuilles de route"],
+    [{ligne:"Diagnostic et plan d'action institutionnel",unite:"Composante",prix:ND}],
+    "Point d'entrée classique d'un programme foncier. À articuler avec l'appui aux politiques publiques pour la dimension stratégique.",
+    ["Ateliers multi-acteurs","Cartographie institutionnelle"], ["Madagascar — ARSF","Maroc — MCC","Mali — Office du Niger","Multi-pays — PARIIS","Sénégal — AIDEP","Côte d'Ivoire — AFOR"]),
+  O("sf-m2","SF","Communication, mobilisation et participation sociale","Historique",
+    "Maillon 2 — créer l'adhésion, gérer le changement, résoudre les conflits.",
+    "Créer l'adhésion, accompagner le changement, résoudre les conflits et assurer l'inclusion des femmes, des jeunes, des minorités sociales et des groupes vulnérables, par des campagnes de sensibilisation et des mécanismes de gestion des plaintes.",
+    "Maîtrises d'ouvrage de programmes fonciers, collectivités, communautés locales.",
+    [{n:"01",text:"Une opération de certification de masse échoue faute d'adhésion des ayants droit coutumiers."},{n:"02",text:"Les plaintes s'accumulent sans mécanisme de traitement ni de médiation locale."}],
+    ["Plans de communication stratégiques et supports médias : affiches, radio, TV","Réunions communautaires et messages adaptés aux publics cibles","Mécanismes de gestion des plaintes : boîtes, hotlines, registres, formulaires numériques","Formation de médiateurs villageois, documentation et suivi des résolutions"],
+    [{ligne:"Mobilisation sociale et GRM",unite:"Composante",prix:ND}],
+    "Composante souvent sous-estimée au chiffrage alors qu'elle conditionne le résultat de tout le programme, et donc le paiement quand celui-ci est conditionné aux résultats finaux.",
+    ["Communication multi-canal","Mécanismes GRM"], ["Madagascar — CASEF","Burundi — PPRPB","Côte d'Ivoire — PAMOFOR","Maroc — MCC","Mozambique — MozLand","Burkina Faso — LTP45"]),
+  O("sf-m3","SF","Infrastructure géospatiale et acquisition de données","Historique",
+    "Maillon 3 — produire les données socles de référence, spatiales et socio-économiques.",
+    "Produire les données socles de référence, spatiales et socio-économiques, nécessaires à la sécurisation foncière : maîtrise de la collecte terrain à toutes les échelles, du village à l'État.",
+    "Programmes fonciers nationaux, agences cadastrales, collectivités.",
+    [{n:"01",text:"Aucun fond de plan exploitable n'existe sur les zones à sécuriser."},{n:"02",text:"Les levés doivent couvrir des dizaines de milliers de parcelles en milieu rural, dans un délai contraint."}],
+    ["Production du fond de référence spatial","Collecte terrain et levés parcellaires","Données socio-économiques associées aux droits","Contrôle qualité des données produites"],
+    [{ligne:"Acquisition de données socles",unite:"Composante",prix:ND}],
+    "Le maillon le plus exposé à la concurrence locale à bas coût. Le différenciant se joue sur la qualité et la traçabilité, pas sur le prix.",
+    ["GNSS","Imagerie THR","Collecte mobile"], ["Madagascar — CASEF","Côte d'Ivoire — PAMOFOR","Sénégal — LTS01 & LTS02","Mozambique — MozLand","Nicaragua — Prodep","Panama — PRONAT"]),
+  O("sf-m4","SF","Digitalisation et systèmes d'information foncière","Historique",
+    "Maillon 4 — concevoir et déployer un SIF interopérable et sécurisé.",
+    "Concevoir et déployer un système d'information foncière interopérable et sécurisé pour la gestion des droits et des transactions. Le détail de l'offre relève du domaine Systèmes d'information.",
+    "Administrations foncières nationales et agences cadastrales.",
+    [{n:"01",text:"Les droits certifiés lors d'une opération de masse n'ont pas de système pour être conservés et mis à jour."},{n:"02",text:"Les archives physiques doivent être converties avant toute mise en service."}],
+    ["Conception et déploiement du SIF","Interopérabilité avec les systèmes métier existants : cadastre, outils fiscaux","Dématérialisation et ingestion des archives","Sécurisation des droits et des transactions"],
+    [{ligne:"SIF national complet",unite:"Programme",prix:"1 – 5 M€"}],
+    "À terme la distinction entre sécurisation foncière et systèmes d'information foncière doit être abolie : la chaîne foncière se présente globalement.",
+    ["Neogeo","Innola","PostgreSQL/PostGIS"], REF.SI.slice(0,6)),
+  O("sf-m5","SF","Enregistrement, certification et formalisation","Historique",
+    "Maillon 5 — transformer une occupation de fait en droit enregistré et opposable.",
+    "Conduire les opérations d'enregistrement, de certification et de formalisation des droits, jusqu'à la délivrance de documents opposables aux tiers.",
+    "Agences foncières nationales, guichets fonciers déconcentrés, communes.",
+    [{n:"01",text:"Des dizaines de milliers d'occupants sans titre doivent être formalisés dans un délai contraint."},{n:"02",text:"Les documents délivrés doivent être opposables et reconnus par les banques."}],
+    ["Procédures d'enregistrement et de certification","Dispositif de guichets et d'opérations de masse","Délivrance des documents de droit","Contrôle et validation juridique"],
+    [{ligne:"Opération de certification de masse",unite:"Composante",prix:ND}],
+    "Attention aux paiements conditionnés à la validation de résultats finaux : sécuriser contractuellement les critères d'acceptation et les étapes légales qui ne dépendent pas de nous.",
+    ["Outils d'accompagnement des opérations de masse"], ["Madagascar — CASEF","Côte d'Ivoire — AFOR","Sénégal — LTS01 & LTS02","Burundi — PPRPB","Ouganda — DeSILISoR","Tunisie — EU DGOMI"]),
+  O("sf-m6","SF","Formation et renforcement des capacités","Historique",
+    "Maillon 6 — rendre le dispositif tenable par les équipes nationales.",
+    "Former les agents et renforcer les capacités des institutions pour que le dispositif construit fonctionne sans nous : formation par profil utilisateur, co-construction et animation de groupes de travail mixtes experts et agents.",
+    "Agences foncières, services déconcentrés, écoles et centres de formation nationaux.",
+    [{n:"01",text:"Le système livré n'est plus utilisé six mois après le départ de l'assistance technique."},{n:"02",text:"Les agents recrutés n'ont pas le profil technique attendu par le dispositif."}],
+    ["Plan de formation par profil utilisateur","Animation de groupes de travail mixtes experts et agents","Supports et référentiels de formation","Dispositif de formation de formateurs"],
+    [{ligne:"Renforcement des capacités",unite:"Composante",prix:ND}],
+    "Argument central face à la préférence croissante des donneurs d'ordre pour l'expertise locale : le transfert de compétences systématique est ce qui légitime notre présence.",
+    ["Formation par profil","Groupes de travail mixtes"], ["Madagascar — CASEF","Côte d'Ivoire — AFOR","Multi-pays — PARIIS","Maroc — MCC","Sénégal — LTS02"]),
+  O("sf-m7","SF","Suivi-évaluation, impact et pérennisation","En développement",
+    "Maillon 7 — mesurer les résultats et garantir la durabilité du dispositif.",
+    "Mettre en place le suivi-évaluation, mesurer l'impact et organiser la pérennisation du dispositif — un maillon devenu déterminant depuis que les paiements sont conditionnés à la validation de résultats mesurables.",
+    "Maîtrises d'ouvrage nationales, bailleurs, évaluateurs indépendants.",
+    [{n:"01",text:"Le bailleur exige des résultats mesurables et confie l'évaluation à des experts indépendants."},{n:"02",text:"Un livrable est contesté sur des critères discrétionnaires, remettant en cause des mois de production."},{n:"03",text:"La pérennité du dispositif après clôture du financement n'est pas organisée."}],
+    ["Cadre d'indicateurs et de résultats mesurables","Dispositif de collecte et de reporting","Évaluation d'impact","Plan de pérennisation et de financement récurrent"],
+    [{ligne:"Suivi-évaluation et impact",unite:"Composante",prix:ND}],
+    "Maillon à renforcer en priorité : c'est là que se jouent désormais la trésorerie et la marge, les paiements dépendant de la validation des résultats finaux.",
+    ["Indicateurs de résultat","Évaluation d'impact"], ["Multi-pays — PARIIS","Madagascar — CASEF","Sénégal — LTS02","Maroc — MCC"]),
+
+  // ——— CARTOGRAPHIE ET IMAGERIE
+  O("carto-acq","CARTO","Acquisition de données et prises de vues","À formuler",
+    "Prises de vues aériennes, satellitaires, drone et LiDAR.",
+    "Acquérir les données sources nécessaires à la production cartographique : prises de vues aériennes et satellitaires, acquisitions par drone et par LiDAR, selon la précision et l'emprise attendues.",
+    "Instituts géographiques nationaux, agences cadastrales, maîtres d'ouvrage d'infrastructures.",
+    [{n:"01",text:"Aucune couverture image récente n'existe sur la zone de projet."},{n:"02",text:"La précision attendue exige une acquisition dédiée plutôt qu'une image d'archive."}],
+    ["Plan de vol ou plan d'acquisition","Prises de vues aériennes, satellitaires, drone ou LiDAR","Contrôle qualité et couverture des trous","Livraison des données brutes géoréférencées"],
+    [{ligne:"Acquisition de données",unite:"Par emprise",prix:"Non documenté dans la V02"}],
+    "Presque toujours une composante d'un programme foncier, cartographique ou d'aménagement. Le chapitre correspondant reste à écrire dans le document de travail.",
+    ["Prises de vues aériennes","LiDAR","Drone","Imagerie satellitaire"], null),
+  O("carto-ortho","CARTO","Production cartographique et orthophotographies","À formuler",
+    "Cartographie digitale précise et détaillée, orthophotographies.",
+    "Produire une cartographie digitale précise et détaillée à partir des données acquises, jusqu'aux orthophotographies exploitables comme fond de référence par l'ensemble des administrations.",
+    "Instituts géographiques nationaux, administrations foncières, collectivités.",
+    [{n:"01",text:"Les administrations travaillent sur des fonds de plan différents et incompatibles."},{n:"02",text:"Un programme foncier a besoin d'un fond de référence avant la phase de levés."}],
+    ["Aérotriangulation et traitement photogrammétrique","Orthophotographies mosaïquées","Cartographie digitale à l'échelle demandée","Contrôle de précision et documentation qualité"],
+    [{ligne:"Production cartographique",unite:"Par emprise et échelle",prix:"Non documenté dans la V02"}],
+    "Le fond de référence est un livrable politiquement lisible : il rend le programme visible bien avant les résultats fonciers.",
+    ["Photogrammétrie","Traitement de données spatiales"], null),
+  O("carto-mnt","CARTO","Modèles numériques de terrain et de surface","À formuler",
+    "MNT et MNS pour le génie civil, l'hydraulique et les risques.",
+    "Produire des modèles numériques de terrain et de surface exploitables pour le dimensionnement d'ouvrages, la modélisation hydraulique et l'analyse des risques.",
+    "Maîtres d'ouvrage d'infrastructures, services hydrauliques, gestion des risques.",
+    [{n:"01",text:"Un ouvrage hydraulique ou routier doit être dimensionné sans altimétrie fiable disponible."},{n:"02",text:"Une modélisation d'inondation exige une altimétrie fine."}],
+    ["Modèle numérique de terrain","Modèle numérique de surface","Contrôle de précision altimétrique","Livrables aux formats attendus par les bureaux d'études"],
+    [{ligne:"Production MNT / MNS",unite:"Par emprise",prix:"Non documenté dans la V02"}],
+    "À coupler avec le géoïde côté géodésie : sans référentiel altimétrique cohérent, le modèle n'est pas exploitable.",
+    ["LiDAR","Photogrammétrie"], null),
+  O("carto-bdd","CARTO","Bases de données topographiques 2D et 3D","À formuler",
+    "Référentiels topographiques structurés, du 2D au 3D.",
+    "Structurer les données produites en bases de données topographiques 2D et 3D, prêtes à alimenter les systèmes d'information des administrations.",
+    "Instituts géographiques nationaux, agences NSDI, gestionnaires de réseaux.",
+    [{n:"01",text:"Les données cartographiques existent en fichiers dispersés, sans modèle ni mise à jour."},{n:"02",text:"Un géoportail ou un jumeau numérique a besoin d'un référentiel topographique structuré en entrée."}],
+    ["Modèle de données topographiques","Constitution et structuration de la base 2D ou 3D","Chaîne de mise à jour","Interfaces avec les systèmes d'information existants"],
+    [{ligne:"Base de données topographiques",unite:"Par territoire",prix:"Non documenté dans la V02"}],
+    "Passerelle directe vers les offres Systèmes d'information : la base topographique est ce qui alimente les géoportails et les jumeaux numériques.",
+    ["PostgreSQL/PostGIS","Modélisation 3D"], null),
+
+  // ——— OT
+  O("ot-conformite","OT","Conformité environnementale et agrobusiness","En développement",
+    "EUDR, comptabilité carbone, suivi agricole à grande échelle.",
+    "Un service de bout en bout pour l'agrobusiness et les institutions : certifier que des parcelles de production ne sont pas issues de déforestation récente, évaluer la biomasse et la séquestration carbone, et suivre la santé des cultures à très grande échelle.",
+    "Agrobusiness — cacao, café, bois, hévéa —, grandes entreprises soumises au reporting extra-financier, institutions agricoles européennes et nationales.",
+    [{n:"01",text:"L'EUDR interdit depuis juin 2023 la mise sur le marché européen de produits issus de déforestation postérieure au 31 décembre 2020 : la chaîne d'approvisionnement doit être tracée."},{n:"02",text:"Une entreprise doit alimenter son reporting ESG et valoriser des crédits carbone sur des bases vérifiables."},{n:"03",text:"Une institution doit vérifier automatiquement les pratiques agricoles déclarées : couverts végétaux, rotations."}],
+    ["Audit et traçabilité « zéro déforestation » : séries temporelles satellitaires et validation experte","Comptabilité écosystémique : biomasse, séquestration carbone, ressources en eau","Suivi agricole : santé des cultures, prévision de rendements, vérification des pratiques","Chaîne de reporting conforme aux exigences réglementaires"],
+    [{ligne:"Service de traçabilité EUDR",unite:"Par chaîne d'approvisionnement",prix:ND},{ligne:"Comptabilité carbone et écosystémique",unite:"Mission",prix:ND}],
+    "Levier d'entrée par la contrainte réglementaire extraterritoriale : c'est le texte européen qui crée le besoin, y compris chez des clients privés hors d'Europe. Validation experte en boucle humaine sur les résultats automatiques.",
+    ["Imagerie optique et radar","IA","Séries temporelles"], ["Contexte Copernicus (UE)","Règlement EUDR (UE) 2023/1115"]),
+  O("ot-fonciere","OT","Souveraineté foncière et aménagement du territoire","En développement",
+    "Pré-cadastres par IA, occupation des sols, jumeaux numériques urbains.",
+    "Accélérer les politiques de sécurisation foncière et d'aménagement par l'imagerie : extraction automatisée des limites parcellaires, référentiels d'occupation des sols de précision, modélisation 3D fine du bâti et cartographie thermique.",
+    "États du Sud global conduisant une politique de sécurisation foncière ; ministères de l'aménagement ; grandes villes.",
+    [{n:"01",text:"Une politique de sécurisation foncière doit couvrir un territoire rural très étendu, hors de portée d'une collecte terrain exhaustive."},{n:"02",text:"Un schéma d'aménagement national exige un référentiel d'occupation des sols mis à jour."},{n:"03",text:"Une ville doit identifier ses îlots de chaleur urbains pour son plan d'adaptation climatique."}],
+    ["Génération de pré-cadastres ruraux par IA sur imagerie très haute résolution","Cartographie dynamique de l'occupation des sols, type Corine Land Cover ou Urban Atlas adapté au contexte","Modélisation 3D du bâti : hauteurs, emprises","Cartographie thermique et identification des îlots de chaleur"],
+    [{ligne:"Pré-cadastre rural par IA",unite:"Par zone",prix:ND},{ligne:"Référentiel d'occupation des sols",unite:"Par territoire",prix:ND}],
+    "Le pré-cadastre par IA est le levier de compétitivité prix le plus direct sur les programmes fonciers : il réduit la part de collecte terrain, là où notre positionnement tarifaire est le plus contesté.",
+    ["Imagerie THR","IA","Modélisation 3D","Imagerie thermique"], ["Synergie groupe GEOFIT","Contexte Copernicus (UE)"]),
+  O("ot-risques","OT","Risques climatiques, assurances et urgences","En développement",
+    "Empreinte des dommages, alerte précoce, cartographie rapide.",
+    "Cartographier les risques et évaluer les dommages : cartographie prédictive des zones inondables et des couloirs de feu, évaluation instantanée des dégâts post-crise, et suivi en temps quasi réel des catastrophes et des déplacements de populations.",
+    "Compagnies d'assurance et de réassurance, États, protections civiles, ONG humanitaires.",
+    [{n:"01",text:"Un assureur doit déclencher rapidement et justement des indemnisations après une catastrophe."},{n:"02",text:"Une protection civile doit orienter ses moyens dans les heures qui suivent un événement."},{n:"03",text:"Une ONG doit suivre des déplacements de population sur une zone inaccessible."}],
+    ["Cartographie prédictive : zones inondables, couloirs de feu","Évaluation instantanée des dommages — « event footprint »","Systèmes d'alerte précoce","Cartographie d'urgence en temps quasi réel sur flux radar et optique"],
+    [{ligne:"Modélisation de risque",unite:"Par territoire",prix:ND},{ligne:"Service de cartographie d'urgence",unite:"Abonnement ou activation",prix:ND}],
+    "Le seul segment du catalogue avec une cible assurantielle privée clairement identifiée : un gisement B2B à instruire.",
+    ["Radar / SAR","Imagerie optique","Modélisation prédictive"], ["Contexte Copernicus (UE)"]),
+  O("ot-securite","OT","Sécurité, défense et ressources stratégiques","À formuler",
+    "GEOINT, surveillance des ressources extractives, atlas énergétiques.",
+    "Analyse d'imagerie sécurisée et détection d'anomalies pour la surveillance des frontières et des infrastructures critiques, la détection de l'exploitation minière illégale, et l'identification des sites d'implantation d'énergies renouvelables.",
+    "Ministères de la défense et de l'intérieur, administrations minières et fiscales, ministères de l'énergie.",
+    [{n:"01",text:"Un État perd des recettes fiscales du fait de l'orpaillage illégal, invisible sous la canopée en imagerie optique."},{n:"02",text:"Une frontière ou une infrastructure critique doit être surveillée dans la durée."},{n:"03",text:"Un plan national d'énergies renouvelables doit identifier ses sites optimaux."}],
+    ["GEOINT : analyse d'imagerie sécurisée, détection d'anomalies, modélisation tactique","Surveillance des ressources extractives par pénétration du signal radar sous la canopée","Atlas des potentiels énergétiques : solaire, éolien","Chaînes de traitement sécurisées"],
+    [{ligne:"GEOINT",unite:"Mission",prix:ND},{ligne:"Surveillance des ressources extractives",unite:"Par territoire",prix:ND}],
+    "En synergie forte avec les capacités confidentielles du groupe GEOFIT. Cadre contractuel et de compliance à instruire avant toute approche commerciale.",
+    ["Radar / SAR","IA","Chaînes sécurisées"], ["Synergie groupe GEOFIT"])
+];
+
+const NEEDS = [
+  {id:"positionnement", num:"01", title:"Moderniser le référentiel de positionnement national",
+   question:"Le référentiel géodésique et altimétrique du pays est vieillissant ou dégradé, alors que tous les travaux de précision en dépendent : cartographie, foncier, gestion des risques, grands projets d'infrastructure.",
+   approche:"Rarement vendable en appel d'offres 100 % géodésie. Identifier le besoin macro qui la porte — eau, réseaux, foncier, secteur économique — et inscrire la géodésie comme composante indispensable d'un programme plus large.",
+   offers:["geo-conseil","geo-cors","geo-reseaux","geo-geoide","carto-mnt"]},
+  {id:"droits", num:"02", title:"Sécuriser les droits fonciers à grande échelle",
+   question:"Des dizaines de milliers d'occupants n'ont pas de droit enregistré, les conflits d'usage se multiplient et l'administration foncière n'a ni les procédures ni les outils pour absorber la demande.",
+   approche:"Présenter la chaîne foncière dans sa globalité plutôt qu'en tranches. Sécuriser contractuellement les critères d'acceptation : les paiements sont désormais conditionnés à la validation de résultats finaux par des évaluateurs indépendants.",
+   offers:["sf-m1","sf-m2","sf-m3","sf-m5","sf-m6","sf-m7","ot-fonciere","carto-ortho"]},
+  {id:"si-metier", num:"03", title:"Doter une administration d'un système d'information métier",
+   question:"Les procédures reposent sur des registres papier ou des outils hétérogènes, les archives se dégradent et aucun système ne permet de gérer les droits, les dossiers ou les actifs de façon fiable.",
+   approche:"Cadrage fonctionnel clair et contractuel avant tout engagement de développement. Proposition budgétaire modulaire par phase ou par module, engagement porté sur les livrables, modèle mixte international et local.",
+   offers:["si-ba","si-sif","si-portails-fonciers","si-mobile","si-thematiques","si-blockchain","sf-m4"]},
+  {id:"reforme", num:"04", title:"Concevoir ou piloter une réforme territoriale",
+   question:"Un objectif politique — climat, foncier, aménagement — doit être traduit en trajectoire finançable, avec des arbitrages entre chantiers concurrents et des institutions dont les compétences se recouvrent.",
+   approche:"Se positionner comme architecte métier de la réforme et intégrateur des volets techniques, institutionnels et financiers. Utiliser le diagnostic comme point d'entrée, puis des feuilles de route à tiroirs plutôt qu'une étude interminable.",
+   offers:["appt-reformes","appt-strategies","appt-conception","appt-schema","appt-gouv-fonciere","sf-m1"]},
+  {id:"conformite", num:"05", title:"Se conformer à une obligation réglementaire ou de reporting",
+   question:"Un texte réglementaire, un engagement international ou un classement impose de produire, d'exploiter et de diffuser des données géospatiales : EUDR, ZAN, PAC, INSPIRE, DT-DICT, ODD, Business Ready.",
+   approche:"Le levier commercial le plus direct du référentiel. Expliciter les implications concrètes du texte pour l'administration ou l'entreprise — données, systèmes, observatoires, portails, capacités humaines — puis proposer une feuille de route clé en main.",
+   offers:["ot-conformite","appt-carto","appt-diffusion","si-portails-urba","appt-reformes"]},
+  {id:"suivi", num:"06", title:"Suivre un territoire, un risque ou une ressource",
+   question:"Un phénomène doit être observé dans la durée sur un territoire étendu ou inaccessible : déforestation, artificialisation, catastrophe, exploitation illégale, potentiel énergétique.",
+   approche:"Positionnement d'intégrateur : la donnée spatiale et l'IA sont converties en solution métier prête à l'emploi, avec validation experte en boucle humaine. Le segment assurantiel privé est le gisement B2B le plus net.",
+   offers:["ot-risques","ot-securite","ot-conformite","appt-carto","si-dataviz","carto-acq"]},
+  {id:"diffusion", num:"07", title:"Rendre les données géospatiales exploitables et diffusables",
+   question:"Chaque institution produit ses propres couches sans référentiel commun, les données ne sont ni publiées ni normalisées, et les engagements d'ouverture restent lettre morte.",
+   approche:"Coupler la plateforme et les règles : un géoportail sans politique de diffusion reste sous-utilisé. L'intégration d'API professionnelles — notaires, banques, acteurs économiques — est l'argument qui crée un modèle de revenus.",
+   offers:["si-geoportails","appt-diffusion","si-portails-urba","si-dataviz","si-3d","si-ia","carto-bdd"]}
+];
+
+const KIT = [
+  {type:"Levier 1", title:"Veille légale et réglementaire", body:"Une veille structurée, pays par pays, sur les thématiques où la donnée spatiale est indispensable : environnement, déforestation, occupation des sols, foncier, risques, infrastructures. Anticiper les réformes qui obligent les États à se doter d'outils de suivi.", ex:"EUDR · INSPIRE · Green Deal · DT-DICT"},
+  {type:"Levier 2", title:"Index et classements internationaux", body:"Structurer une approche par les indices qui influencent la perception de la gouvernance, de l'environnement des affaires et de la transparence foncière. Constituer un « package d'indicateurs » pour un portefeuille de pays ciblés.", ex:"Business Ready · administration foncière"},
+  {type:"Levier 3", title:"Engagements internationaux et redevabilité", body:"Mobiliser les indices de redevabilité et les engagements ODD et climatiques : ils créent des obligations de production et de diffusion de données en amont, pendant la mise en œuvre et dans le suivi-évaluation.", ex:"ODD · engagements climatiques"},
+  {type:"Levier 4", title:"Documents programmatifs nationaux", body:"Analyser les documents de politique générale et leurs déclinaisons sectorielles — la boussole que les gouvernements suivent — pour y ancrer la proposition de valeur plutôt que de la plaquer de l'extérieur.", ex:"Plans nationaux · stratégies sectorielles"},
+  {type:"Levier 5", title:"Stratégies pays des bailleurs", body:"Lire les documents de stratégie pays des bailleurs pour influencer la configuration des programmes en amont et y faire infuser nos spécificités, avant que les termes de référence ne figent l'approche.", ex:"DSP · Banque mondiale · BID · MCC · UE"},
+  {type:"Cadre", title:"Dialogue interinstitutionnel spatialisé", body:"Proposer un cadre de dialogue entre institutions fondé sur des représentations spatiales neutres et robustes, permettant de simuler et d'apprécier les impacts d'une politique publique sur les territoires.", ex:"Piste à instruire"}
+];
+
+const ROIS = [
+  {k:"Administration foncière et sécurisation, Afrique subsaharienne", inv:"71 Md USD", ret:"82 Md USD", ratio:"1,15 : 1"},
+  {k:"Infrastructure d'information géospatiale, socle des SIF — UNECA Afrique", inv:"1 USD", ret:"32 USD", ratio:"32 : 1"},
+  {k:"Rénovation cadastrale et digitalisation, Turquie — LRCMP", inv:"185,7 M EUR", ret:"4 126 M EUR", ratio:"Analyse financière du gouvernement"},
+  {k:"Projets fonciers digitalisés, Russie, 1980-2024", inv:"63,5 M USD", ret:"435,7 M USD", ratio:"6,9 : 1"},
+  {k:"Cadastre et sécurisation foncière, Afrique", inv:"150 – 250 M USD", ret:"2 – 4 Md USD", ratio:"15 : 1"},
+  {k:"Planification urbaine intégrée, Afrique", inv:"80 – 150 M USD", ret:"1,2 – 2,5 Md USD", ratio:"14 : 1"},
+  {k:"Systèmes d'information géographique, Afrique", inv:"30 – 60 M USD", ret:"500 – 900 M USD", ratio:"13 : 1"},
+  {k:"Gestion des risques urbains, Afrique", inv:"50 – 100 M USD", ret:"0,8 – 1,8 Md USD", ratio:"15 : 1"},
+  {k:"Programme Copernicus, Union européenne", inv:"6,7 Md EUR (2014-2020)", ret:"30 Md EUR par an", ratio:"4,5 : 1"},
+  {k:"Gestion forestière par observation de la Terre", inv:"80 – 150 M EUR", ret:"1,2 – 2 Md EUR", ratio:"12 : 1"}
+];
+
+const CONTACTS = [
+  {who:"Direction Technique", title:"Faisabilité, périmètre, choix technologiques", body:"Axes d'alignement stratégique, domaines d'amélioration prioritaires, ouverture de nouveaux domaines d'intervention et développement de services différenciants."},
+  {who:"Direction Commerciale", title:"Marchés, opportunités locales, montage d'affaire", body:"Ce référentiel donne un cadre et des éléments de langage ; il ne se substitue pas à la connaissance des marchés et des opportunités locales portée par la DC."},
+  {who:"Direction du Développement", title:"Nouveaux segments et partenariats", body:"Financements privés, marchés B2B, création de filiales locales et articulation avec la stratégie d'internationalisation du groupe."},
+  {who:"Direction Générale", title:"Arbitrages stratégiques", body:"La refonte de l'offre est portée par la direction générale : elle tranche les orientations qui engagent le modèle d'affaires."},
+  {who:"Équipe DevOps et SIG", title:"Réalisation des systèmes d'information", body:"Architectes logiciels spécialisés en SIF, experts SIG et bases cadastrales, spécialistes du foncier — juristes et ingénieurs géomètres — avec expérience africaine."},
+  {who:"Contribution attendue", title:"Enrichir ce référentiel", body:"Les situations générales sont subjectives et évolutives, conçues pour être enrichies par votre connaissance des marchés et des géographies. Les remarques sont attendues."}
+];
+
+const PARTNERS = [
+  {name:"Innola", role:"Prestataire SIF historique", note:"Coûts de développement élevés, lourdeur liée à l'héritage technologique, performance médiocre. Sortie progressive engagée pour les SIF."},
+  {name:"Neogeo", role:"Prestataire SIF cible", note:"Technologie retenue pour les SIF à venir, via Geofit. Support de la bascule technologique du domaine."},
+  {name:"Geofit", role:"Groupe", note:"Conçoit l'internationalisation comme une duplication locale de ses activités. Synergies fortes en sécurisation foncière et en capacités GEOINT."},
+  {name:"Modern Ant", role:"Équipe de développement", note:"Acquisition de compétences propres depuis SIGFU, réduisant la dépendance aux prestataires externes."},
+  {name:"OneLand", role:"Technologie SIF", note:"Mobilisé sur LARIS, en B2B. Diversification technologique avec l'approche IKA."},
+  {name:"Leica", role:"Stations permanentes", note:"Partenaire historique, liens interpersonnels en voie d'affaiblissement. Le partenariat est à réinventer."},
+  {name:"Coexya · Onepoint · NCIT", role:"Intégrateurs", note:"Partenaires potentiels sur les volets systèmes d'information. Profils à renseigner : CA, effectifs, réalisations récentes, part de marché."},
+  {name:"ESRI", role:"Éditeur SIG", note:"Non retenu pour les SIG, où l'approche open est privilégiée. Reste une option d'interopérabilité côté client."},
+  {name:"Origami et acteurs locaux", role:"Prestataires locaux", note:"Relais indispensables face à la préférence croissante des donneurs d'ordre pour l'expertise locale."}
+];
+
+const FAQ = [
+  {q:"Les budgets affichés peuvent-ils être présentés au client ?", a:"Non. Ce sont des fourchettes de référence issues du document de travail V02, destinées à cadrer une discussion interne. Toute proposition budgétaire est modulaire, structurée par phase ou par module fonctionnel, et validée avant engagement."},
+  {q:"Pourquoi certaines offres n'ont-elles pas de budget de référence ?", a:"Parce que le document de travail ne les chiffre pas encore. Les fourchettes documentées concernent les infrastructures géodésiques nationales, les SIF nationaux complets, la Business Analysis et les géoplateformes nationales. Le reste est à construire avec la Direction Technique."},
+  {q:"Que signifient les statuts « Historique », « En développement », « À structurer » et « À formuler » ?", a:"Ils reflètent l'état de formulation de l'offre dans le document, pas sa qualité technique. « Historique » : offre éprouvée, vendue de façon récurrente. « En développement » : formulée mais peu de références. « À structurer » : le domaine existe, l'approche commerciale reste à construire. « À formuler » : l'offre de service n'est pas encore écrite."},
+  {q:"Une affaire couvre plusieurs domaines, comment la monter ?", a:"C'est le cas normal, et c'est même l'approche recommandée : la géodésie, les systèmes d'information et la sécurisation foncière s'inscrivent presque toujours dans un programme multi-composantes. Le diagnostic ou l'étude préalable sert de point d'entrée, puis les composantes s'ajoutent par vagues finançables."},
+  {q:"Peut-on citer les références projets par leur nom ?", a:"Les références listées ici sont celles du document de travail interne. Vérifier la citabilité auprès du client avant tout usage externe, en particulier sur les projets financés par des bailleurs et sur les volets sécurité et défense."},
+  {q:"Comment répondre à un concurrent local moins cher ?", a:"Le positionnement tarifaire est effectivement trop élevé par rapport à la capacité de paiement de plusieurs marchés. Les leviers documentés sont l'approche intégrée multi-composantes, le transfert de compétences systématique, la part croissante d'automatisation — pré-cadastre par IA, noyau réutilisable — et les variantes bas coût, notamment sur les CORS."},
+  {q:"Ce référentiel est-il figé ?", a:"Non. Les situations générales sont explicitement subjectives et évolutives, et plusieurs sections portent la mention « à reformuler et à développer ». Il est conçu pour être enrichi par la connaissance des marchés et des géographies de chacun."},
+  {q:"Certains contenus ont-ils été produits par IA ?", a:"Oui, et le document les repère par un symbole. Ils reposent sur l'analyse de documents internes et d'études d'organismes institutionnels et de bailleurs — Banque mondiale, BID, MCC, PNUD, UE — et non sur des agents généralistes, dont les imprécisions seraient importantes sur une niche aussi réduite."}
+];
+
+const MAT_CLASS = {"Historique":"tag tag-neutral","En développement":"tag tag-accent","À structurer":"tag tag-outline","À formuler":"tag tag-outline"};
+
+class Component extends DCLogic {
+  state = { page:"accueil", dir:null, needId:"positionnement", offerId:null, faqOpen:{} };
+
+  go = (page) => this.setState({page});
+  openOffer = (id) => this.setState({page:"offre", offerId:id});
+  pickNeed = (id) => this.setState({page:"parcours", needId:id});
+
+  icon(k, size) {
+    const paths = ICONS[k] || [];
+    return React.createElement("svg", {
+      width: size, height: size, viewBox: "0 0 24 24", fill: "none",
+      stroke: "currentColor", strokeWidth: 1.5, strokeLinecap: "round", strokeLinejoin: "round",
+      style: {display: "block", flex: "none"}, "aria-hidden": "true"
+    }, paths.map((d,i) => React.createElement("path", {key:i, d})));
+  }
+
+  fillers(n, cols) {
+    const k = (cols - (n % cols)) % cols;
+    return Array.from({length: k}, (_, i) => i);
+  }
+
+  dec(o) {
+    const d = DOMAINS[o.dom];
+    return Object.assign({}, o, {
+      domName: d.name,
+      icon: this.icon(o.dom, 26),
+      matClass: MAT_CLASS[o.mat] || "tag tag-neutral",
+      onClick: () => this.openOffer(o.id)
+    });
+  }
+
+  renderVals() {
+    const s = this.state;
+    const dir = s.dir ?? this.props.direction ?? "grille";
+    const need = NEEDS.find(n => n.id === s.needId) || NEEDS[0];
+    const byId = id => OFFERS.find(o => o.id === id);
+    const pages = [["accueil","Accueil"],["parcours","Besoins"],["domaines","Domaines"],["contacts","Qui contacter"],["kit","Kit commercial"],["faq","FAQ interne"]];
+    const domKeys = ["SF","GEO","APPT","SI","CARTO","OT"];
+
+    return {
+      goHome: () => this.go("accueil"),
+      goParcours: () => this.go("parcours"),
+      goDomaines: () => this.go("domaines"),
+      isHomeGrid: s.page === "accueil" && dir === "grille",
+      isHomePoster: s.page === "accueil" && dir === "affiche",
+      isParcours: s.page === "parcours",
+      isDomaines: s.page === "domaines",
+      isOffre: s.page === "offre",
+      isContacts: s.page === "contacts",
+      isKit: s.page === "kit",
+      isFaq: s.page === "faq",
+      navItems: pages.map(([id,label]) => ({
+        label, href:"#"+id,
+        current: (s.page===id || (id==="parcours" && s.page==="offre")) ? "page" : undefined,
+        onClick: e => { e.preventDefault(); this.go(id); }
+      })),
+      dirOptions: [["grille","Grille"],["affiche","Affiche"]].map(([id,label]) => ({
+        label,
+        onClick: () => this.setState({dir:id, page:"accueil"}),
+        style: "font:inherit;font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;padding:5px 10px;border:1px solid var(--color-divider);background:" + (dir===id ? "var(--color-accent)" : "transparent") + ";color:" + (dir===id ? "var(--color-bg)" : "inherit") + ";opacity:" + (dir===id ? "1" : "0.7")
+      })),
+      stats: [{value:"6",label:"domaines d'offre"},{value:String(OFFERS.length),label:"offres au catalogue"},{value:"7",label:"besoins clients"},{value:"40",label:"années de références"}],
+      needCards: NEEDS.map(n => ({
+        num:n.num, title:n.title, question:n.question, count:n.offers.length,
+        onClick: () => this.pickNeed(n.id),
+        rowStyle: "display:flex;gap:8px;align-items:baseline;padding:11px 24px 11px 12px;margin-left:-12px;cursor:pointer;border-left:3px solid " + (n.id===s.needId ? "var(--color-accent)" : "transparent") + ";background:" + (n.id===s.needId ? "var(--color-surface)" : "transparent")
+      })),
+      need,
+      needOffers: need.offers.map(byId).filter(Boolean).map(o => this.dec(o)),
+      needCardsFill: this.fillers(NEEDS.length, 4),
+      needOffersFill: this.fillers(need.offers.filter(byId).length, 2),
+      domainRows: domKeys.map(k => Object.assign({}, DOMAINS[k], {
+        count: OFFERS.filter(o => o.dom === k).length,
+        icon: this.icon(k, 30),
+        onClick: () => this.go("domaines")
+      })),
+      domainBlocks: domKeys.map(k => Object.assign({}, DOMAINS[k], {
+        count: OFFERS.filter(o => o.dom === k).length,
+        icon: this.icon(k, 34),
+        offers: OFFERS.filter(o => o.dom === k).map(o => this.dec(o)),
+        fill: this.fillers(OFFERS.filter(o => o.dom === k).length, 3)
+      })),
+      offre: this.dec(byId(s.offerId) || OFFERS[0]),
+      contacts: CONTACTS,
+      partners: PARTNERS,
+      kit: KIT,
+      rois: ROIS,
+      faq: FAQ.map((f,i) => ({
+        q:f.q, a:f.a, mark: s.faqOpen[i] ? "–" : "+",
+        onClick: () => this.setState(st => ({faqOpen: Object.assign({}, st.faqOpen, {[i]: !st.faqOpen[i]})})),
+        answerStyle: "margin:0;font-size:15px;line-height:1.6;max-width:54em;padding:" + (s.faqOpen[i] ? "0 0 24px 44px" : "0 0 0 44px") + ";overflow:hidden;height:" + (s.faqOpen[i] ? "auto" : "0") + ";opacity:" + (s.faqOpen[i] ? "0.82" : "0")
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>
